@@ -1,0 +1,15 @@
+www.stuffzilla.com {
+    redir https://stuffzilla.com
+}
+stuffzilla.com {
+    root /app
+
+    proxy / django:5000 {
+        except /staticfiles /media
+        transparent
+    }
+
+    log stdout
+    errors stdout
+    gzip
+}

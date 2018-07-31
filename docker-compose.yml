@@ -1,0 +1,48 @@
+version: "2"
+
+volumes:
+    postgres_data: {}
+
+services:
+  django:
+    build:
+      context: .
+      dockerfile: ./compose/django/Dockerfile
+      args:
+          DJANGO_ENV: development
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    command: /start.sh
+    restart: always
+    env_file: .env
+
+  postgres:
+    image: postgres:9.6
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    env_file: .env
+
+
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.0
+    ports:
+      - "8025:8025"
+
+
+  vue:
+    build:
+      context: .
+      dockerfile: ./compose/vue/Dockerfile
+    command: npm run dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    restart: always
+    env_file: .env
