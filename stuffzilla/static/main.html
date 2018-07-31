@@ -28,18 +28,22 @@
   </head>
 
   <body style="margin: 0">
-    <div id="main"></div>
+
+    <div id="main">
+        /* CONTENT DIV */
+    </div>
+
   </body>
 
   {% if GOOGLE_ANALYTICS %}<script>var GOOGLE_ANALYTICS = "{{ GOOGLE_ANALYTICS }}"</script>{% endif %}
-  
+
   <script>var SENTRY_PUBLIC_DSN = "{{ SENTRY_PUBLIC_DSN }}"</script>
 
-  
+
       {% if DEBUG %}
           <script type="text/javascript" src="http://localhost:3000/staticfiles/dist/bundle.js"></script>
       {% else %}
           <script type="text/javascript" src="{% static 'dist/bundle.js' %}"></script>
       {% endif %}
-  
+
 </html>

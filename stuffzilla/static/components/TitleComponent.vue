@@ -1,15 +1,15 @@
 <template>
   <div class="container">
-    <h1>Cookiecutter Django Vue</h1>
+    <h1>ShareZilla</h1>
     <p align="center">
-      <img src="https://i.imgur.com/SA8cjs8.png">
+      Share your Stuff With the World and become a part of the sharing community
     </p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'FirstComponent'
+  name: 'TitleComponent'
 }
 </script>
 

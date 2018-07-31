@@ -1,10 +1,14 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import FirstComponent from './components/FirstComponent.vue'
+import TitleComponent from './components/TitleComponent.vue'
+import SearchComponent from './components/SearchComponent.vue'
+import ShareComponent from './components/ShareComponent.vue'
 
 const routes = [
-  {path: '*', component: FirstComponent}
+    {path: '*', component: TitleComponent},
+    {path: '/search', component: SearchComponent},
+    {path: '/share', component: ShareComponent}
 ]
 
 Vue.use(VueRouter)
