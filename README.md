@@ -16,4 +16,9 @@ Gobal merry-go-round for stuff that is waiting to be used, shared and enjoyed by
   https://github.com/vchaptsev/cookiecutter-django-vue  
 
   ## Docker
+  https://docs.docker.com/
+
   sudo docker-compose run django python manage.py <command>
+
+  User issue (Permission):
+  sudo docker-compose run --user=root django python manage.py <command>

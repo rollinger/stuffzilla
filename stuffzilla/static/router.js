@@ -2,11 +2,13 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import TitleComponent from './components/TitleComponent.vue'
+//import StuffGridComponent from './components/StuffGridComponent.vue'
 import SearchComponent from './components/SearchComponent.vue'
 import ShareComponent from './components/ShareComponent.vue'
 
 const routes = [
     {path: '*', component: TitleComponent},
+    //{path: '/stuff', component: StuffGridComponent},
     {path: '/search', component: SearchComponent},
     {path: '/share', component: ShareComponent}
 ]

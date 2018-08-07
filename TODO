@@ -1,0 +1,14 @@
+Inquiry:
+    OK   What is Vuex?
+        => State Management
+    O   How works Axios? => models.Stuff
+    O
+Bugfix:
+    O   Foundation not included?
+        => CDN HOTLINKING... Webpack?
+    O   Images Permission Problem (media)
+Develop:
+    O   Stuff Item Display Short Component
+    O   Stuff Item Display Long Component
+    O   Stuff Item Display Grid Component
+    O   Stuff Item CRUD Actions
