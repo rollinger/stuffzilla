@@ -7,6 +7,10 @@ Gobal merry-go-round for stuff that is waiting to be used, shared and enjoyed by
       <img src="https://img.shields.io/badge/built%20with-Cookiecutter%20Django%20Vue-blue.svg" />
   </a>
 
+  ## Apps
+  - stuffzilla: Main
+  - sharestuff: Stuff, Booking, BookingEvent
+  - userprofile: Extension for User
 
   ## License
   MIT
@@ -22,3 +26,14 @@ Gobal merry-go-round for stuff that is waiting to be used, shared and enjoyed by
 
   User issue (Permission):
   sudo docker-compose run --user=root django python manage.py <command>
+
+  ## Reset Db
+  sudo docker-compose run --user=root django python manage.py reset_db
+  sudo docker-compose run --user=root django python manage.py makemigrations
+  sudo docker-compose run --user=root django python manage.py migrate
+  sudo docker-compose run --user=root django python manage.py createsuperuser
+
+  ## Media (static) Issues
+  The folder media/ and static/ need to be accessible by the django user.
+  sudo docker-compose run --user=root django chown 1000:django media -R
+  sudo docker-compose run --user=root django chown 1000:django stuffzilla/static -R

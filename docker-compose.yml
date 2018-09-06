@@ -13,7 +13,7 @@ services:
     depends_on:
       - postgres
     volumes:
-      - .:/app:Z
+      - .:/app:z
     ports:
       - "8000:8000"
     command: /start.sh
@@ -23,7 +23,7 @@ services:
   postgres:
     image: postgres:9.6
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data:z
     env_file: .env
 
 
@@ -40,7 +40,7 @@ services:
       dockerfile: ./compose/vue/Dockerfile
     command: npm run dev
     volumes:
-      - .:/app:Z
+      - .:/app:z
       - /app/node_modules
     ports:
       - "3000:3000"

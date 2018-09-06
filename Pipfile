@@ -1,18 +1,17 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
-Django = "==2.0.3"
+#Django = "==2.0.3"
+Django = "==1.11"
 djangorestframework = "*"
 django-environ = "*"
 django-extensions = "*"
 Pillow = "*"
 "psycopg2" = "*"
+"psycopg2-binary" = "*"
 django-redis = "*"
 redis = "*"
 requests = "*"
@@ -22,9 +21,11 @@ gevent = "*"
 gunicorn = "*"
 django-anymail = "*"
 raven = "*"
+djangorestframework-filters = "*"
+django-filter = "==1.1"
+django-guardian = "*"
 
 [dev-packages]
-
 Werkzeug = "*"
 "flake8" = "*"
 coverage = "*"
@@ -35,7 +36,5 @@ pytest-sugar = "*"
 pytest-django = "*"
 django-test-plus = "*"
 
-
 [requires]
-
 python_version = "3.6"

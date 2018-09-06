@@ -9,7 +9,7 @@ import VueAnalytics from 'vue-analytics'
 import VueRaven from 'vue-raven'
 
 
-import Main from './Main.vue'
+import Sharezilla from './Sharezilla.vue'
 
 // Axios csrf settings
 axios.defaults.xsrfCookieName = 'csrftoken'
@@ -26,15 +26,14 @@ Vue.use(VueAnalytics, {id: GOOGLE_ANALYTICS, router})
 
 
 
-
-
 Vue.use(Meta)
 
 
 /* eslint-disable no-new */
+// Root Instance
 new Vue({
-  el: '#main',
-  router,
-  store,
-  render: h => h(Main)
+    el: '#sharezilla-main',
+    router,
+    store,
+    render: h => h(Sharezilla),
 })

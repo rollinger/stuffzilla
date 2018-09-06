@@ -24,6 +24,7 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
 
     # Admin
     'django.contrib.admin'
@@ -31,13 +32,19 @@ DJANGO_APPS = [
 
 THIRD_PARTY_APPS = [
     'rest_framework',
-    'django_extensions'
+    'django_filters',
+    'rest_framework_filters',
+    'django_extensions',
+    #'guardian',
 ]
 
 # Apps specific for this project go here.
 LOCAL_APPS = [
     # Your stuff: custom apps go here
-    'sharestuff',
+    'position',
+    'market',
+    #'sharestuff',
+    #'userprofile',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -210,7 +217,10 @@ REST_FRAMEWORK = {
         'rest_framework.parsers.FormParser',
         'rest_framework.parsers.MultiPartParser',
         'rest_framework.parsers.FileUploadParser'
-    ]
+    ],
+    'DEFAULT_FILTER_BACKENDS': (
+        'rest_framework_filters.backends.DjangoFilterBackend',
+    ),
 }
 
 

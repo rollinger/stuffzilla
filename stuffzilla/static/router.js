@@ -1,19 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import TitleComponent from './components/TitleComponent.vue'
-//import StuffGridComponent from './components/StuffGridComponent.vue'
-import SearchComponent from './components/SearchComponent.vue'
-import ShareComponent from './components/ShareComponent.vue'
+import MarketComponent from './components/structural/MarketComponent.vue'
+import ProfileComponent from './components/structural/ProfileComponent.vue'
 
 const routes = [
-    {path: '*', component: TitleComponent},
-    //{path: '/stuff', component: StuffGridComponent},
-    {path: '/search', component: SearchComponent},
-    {path: '/share', component: ShareComponent}
+    {path: '*', component: MarketComponent},
+    {path: '/profile', component: ProfileComponent},
 ]
 
 Vue.use(VueRouter)
+
 const router = new VueRouter({
   scrollBehavior (to, from, savedPosition) { return {x: 0, y: 0} },
   mode: 'history',

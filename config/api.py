@@ -1,8 +1,12 @@
 from rest_framework import routers
-from sharestuff.api import UserViewSet, StuffViewSet
+from position.api import AreaViewSet, AddressViewSet
+from market.api import StuffViewSet
+from userprofile.api import UserViewSet
 
 # Settings
 api = routers.DefaultRouter()
 api.register(r'users', UserViewSet)
-api.register(r'stuff', StuffViewSet)
+api.register(r'areas', AreaViewSet)
+api.register(r'addresses', AddressViewSet)
+api.register(r'mystuff', StuffViewSet)
 api.trailing_slash = '/?'
