@@ -44,9 +44,10 @@ class Stuff(models.Model):
     # Long Description of the Item or Service
     description = models.TextField(_('Description'),
                 help_text=_('Long Description of the Item, Service or Event (max. 2000 characters)'), null=True, blank=True, max_length=2000)
-    # O    TODO [version 0.3]: change the Image save path (media/stuff/)
-    # O    TODO [version 0.3]: show image in Admin
-    image       = models.ImageField(_('Image'), null=True, blank=True)
+    # OK    TODO [version 0.3]: change the Image save path (media/stuff/)
+    # OK    TODO [version 0.3]: show image in Admin
+    image       = models.ImageField(_('Image'),
+                upload_to='stuff/', null=True, blank=True)
 
     # Flags
     sharetype = models.PositiveSmallIntegerField(_('Kind of Sharing'),
@@ -67,7 +68,7 @@ class Stuff(models.Model):
     created_at  = models.DateTimeField(_('Created at'), auto_now_add=True)
     updated_at  = models.DateTimeField(_('Updated at'), auto_now=True)
 
-    objects = StuffManager
+    objects = StuffManager()
 
     def __str__(self):
         return "%s: %s" % (self.sharetype, self.title)
@@ -147,7 +148,7 @@ class SharingRequest(models.Model):
     created_at  = models.DateTimeField(_('Created at'), auto_now_add=True)
     updated_at  = models.DateTimeField(_('Updated at'), auto_now=True)
 
-    objects = SharingRequestManager
+    objects = SharingRequestManager()
 
     def __str__(self):
         """
@@ -221,7 +222,7 @@ class SharingOffer(models.Model):
     created_at  = models.DateTimeField(_('Created at'), auto_now_add=True)
     updated_at  = models.DateTimeField(_('Updated at'), auto_now=True)
 
-    objects = SharingRequestManager
+    objects = SharingRequestManager()
 
     def __str__(self):
         """

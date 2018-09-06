@@ -1,118 +1,23 @@
-OK  GOAL 0.1:
-    Make basic Bookings possible in the Admin
-    OK   Stuff Model
-    OK   Booking Model
-    OK   Make the Workflow of these Raw Models in the Admin
-        OK   CRUD Stuff
-            OK  groups (general, location, flags)
-            OK  booking inlines
-            NO   Set default query set by availability
-            OK   Change general availability to active toogle
-            OK   Interpolate Location (Country,City) into list display
-        OK   CRUD Booking
-            OK list display
 
-OK  GOAL 0.2:
-    Make Request based System
-    OK   Position App
-        OK   Area Model & Admin
-        OK   Address Model & Admin
-    OK   Market App
-        OK   Stuff Model & Admin
-            # OK    TODO [version 0.2]: Able to offer services as well?
-        OK   Sharing Request Model & Admin
-        OK   Sharing Offer Model & Admin
-    OK   Fix Image Permission Problem for Stuff
-        # OK    TODO [version 0.2]: image to app/media/stuff/<name>
-        # OK    TODO [version 0.2]: fix permission error 13 --- docker problem?
+O..   GOAL 0.3.0.1
+    Test Axios to async load data via REST
+    OK   Develop Feedback App with the TestimonialComponent in Vue.js
+        OK   Model & Admin & API for Testimonial Component
+        OK   TestimonialComponent loads a random testimonial every x minutes and displays it in the footer.
+    # OK    TODO [version 0.3]: change the Image save path (media/stuff/ and media/testimonials)
+    # OK    TODO [version 0.3]: show image in Admin
+    # OK    TODO [version 0.3]: change the Image save path (media/stuff/)
+    # OK    TODO [version 0.3]: show image in Admin
 
-OK  GOAL 0.3
-    Set up the Frontend Workflow
-    OK  Join Sharetype and Stufftype
-    OK  Define the 5 Sharing Workflows:
-        SW-1    Sharing Request not targeted at a Stuff Entry
-                => (PMW) Proximity Notification
-                => (SW-5) Sharing Offer of Stuff targeted at a Sharing Request
-                    => If sharing request user accepts the sharing offer create Sharing Agreement
-                => (SAW) Decline/Negotiation/Accept of Sharing Agreement(Sharing Offer)
-                => (RSAW) Review of Sharing Agreement
-        SW-2    Sharing Request targeted at a Stuff Entry
-                => (UNW) Stuff Owner Notification
-                => (SW-5) Sharing Offer of Stuff targeted at a Sharing Request
-                    => If sharing request user accepts the sharing offer create Sharing Agreement
-                => Decline/Negotiation/Accept of Sharing Agreement(Sharing Offer)
-                => Review of Sharing Agreement
-        SW-3    Sharing Request targeted at a Sharing Offer
-                => (UNW) Sharing Offer Owner Notification
-                    => If sharing offer user accepts the sharing request create Sharing Agreement
-                => (SAW) Decline/Negotiation/Accept of Sharing Agreement(Sharing Offer)
-                => (RSAW) Review of Sharing Agreement
-        SW-4    Sharing Offer of Stuff not targeted at a Sharing Request
-                => (PMW) Proximity Notification
-                => (SW-3) Continue with Sharing Request targeted at a Sharing Offer
-        SW-5    Sharing Offer of Stuff targeted at a Sharing Request
-                => (UNW) Sharing Request Owner Notification
-                    => If sharing request user accepts the sharing offer create Sharing Agreement
-                => (SAW) Decline/Negotiation/Accept of Sharing Agreement(Sharing Offer)
-                => (RSAW) Review of Sharing Agreement
-    OK  Define the Auxilliary Workflows:
-        SCW     Stuff Creation Workflow
-                => Form: title, image, description, address (userprofile), kind_of_sharing, active (True), Availability for Events
-                => Save (=>StuffLibrary), Save and add another (=>SCW), Cancel (Main Page)
-        UNW     User Notification
-                => A specific user gets a message about an event into the Notification Cue
-                => If the user is logged in the message will appear on the interface and marked unread
-                => If in the morning the user has unread notifications the user gets an email reminder unless he doesn't want email reminder (userprofile)
-        PMW     Proximity Notification
-                => All User observing the Area (userprofile) an Request or Offer was made (SW-1 & SW-4) will receive a message in their Notification Cue (which updates every other second).
-        SAW     Decline/Negotiation/Accept of Sharing Agreement(Sharing Offer)
-                => CRUD Terms by emitting_party (offer_user) and receiving_party (request_user) until all Terms are accepted by both sides and the sharing agreement as a whole is accepted by both parties
-                => If the accepted sharing agreement is completed both parties have to mark it as completed
-                => Continue with RSAW
-        RSAW    Review of Sharing Agreement
-                => Both Parties write a review for the sharing agreement
-                    - 5 star rating
-                    - rating comment
-    OK  REST & CRUD & Vue.js Implementations
-        OK   SCW     Stuff Creation Workflow
-            => Form: title, image, description, address (userprofile), kind_of_sharing, active (True)
-            OK   Set up REST API and Filters
-                OK   Make Filter on user and active
-                O   Implement Area & User Filter
-                OK  Implement Search Filter (from drf, not drf-filters)
-                OK  Implement Ordering Filter
-                OK   Optimize the fields
-                    OK   Address interpolate and editable
-                    OK   Area Interpolation into Address
-                    OK   Sharetype Display Text
-                    OK  Time Ago function
-            OK  Develop Vue.js Components
-                OK   Get Rid of double title (don't put it in the router)
-                OK   Test CSS Foundation ... it is loading...
-                OK Develop Sharezilla App Layout into Components
-                    => https://foundation.zurb.com/sites/docs/xy-grid.html
-                    OK   Router View for InterfaceComponent
-                    Sharezilla
-                        HeaderComponent
-                            LogoComponent
-                            MainMenuComponent
-                        InterfaceComponent <router-view>
-                            MarketComponent
-                            ProfileComponent
-                        FooterComponent
-                            FeedbackComponent
-                            TestimonialComponent
+    O   Howto Multi-Lang in django + vue.js? (also, best way for database field translations)
 
-
-O   GOAL 0.3.0.1
-    O   Develop Feedback App with the TestimonialComponent in Vue.js
-
-    O   Implement Permissions (Guardian)
-        O   Investigate...
-        - Anonymous: Read,
-        - Owner:
+O   GOAL 0.3.0.2
+    Develop Stuff Workflow (StuffComponent)
+    O   Investigate and Implement Permissions (Guardian)
+        O   Investigate DOC
+        O   Define Guardian Permissions for Stuff
     O   REST & CRUD & Vue.js Implementations
-        O   StuffComponent
+        O   StuffComponent (all in one component)
             Aggregation of the CRUD Components
             O   StuffListComponent
                 O   Filter on active & area
@@ -127,16 +32,27 @@ O   GOAL 0.3.0.1
         O   Stuff Detail View
         O   Edit Details
         O   New Stuff
-        => Save (=>StuffLibrary), Save and add another (=>SCW), Cancel (Main Page)
+        => Save (=>profile/StuffLibrary), Save and add another (=>SCW), Cancel (Main Page)
+
+O   GOAL 0.3.0.3
+    Develop SharingRequest Workflow (Model & Admin & API for SharingRequestComponent)
+    O   REST & CRUD & Vue.js Implementations
+        O   Define Guardian Permissions for
+O   GOAL 0.3.0.4
+    Develop SharingOffer Workflow (Model & Admin & API for SharingOfferComponent)
+
+O   GOAL 0.3.0.5
+    Develop Profile Workflow (Model & Admin & API for ProfileComponent)
+
+
 
 
 O   GOAL 0.3.0.2
-    O   BUGFIX: psycopg2 warning
+
     O   REST & CRUD & Vue.js Implementations
         O   SW-1    Sharing Request not targeted at a Stuff Entry
         O   SW-5    Sharing Offer of Stuff targeted at a Sharing Request
-    # O    TODO [version 0.3]: change the Image save path (media/stuff/)
-    # O    TODO [version 0.3]: show image in Admin
+
 
 O   GOAL 0.3.1:
     Develop UserProfile and Vue.js Component
@@ -150,7 +66,7 @@ O   GOAL 0.3.1:
     O   Account Information (1to1=> auth.user)
         O   Fields:
             -
-
+O   BUGFIX: psycopg2 warning
     /usr/local/lib/python3.6/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
 
 O   GOAL 0.3.1:
@@ -212,7 +128,8 @@ FUTURE FEATURES
     longitude   = models.FloatField(_('Longitude'), null=True, blank=True)
     latitude    = models.FloatField(_('Latitude'), null=True, blank=True)
 # O    TODO [version 0.]: User.on_delete signal => rather set to inactive, not delete!
-
+# O    TODO [version 0.]: Add intelligent database indices to the models for faster retrieval
+# O    TODO [version 0.]: Production Database should be fast MySQL or other
 Inquiry:
     OK   What is Vuex?
         => State Management

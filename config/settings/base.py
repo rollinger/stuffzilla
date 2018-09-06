@@ -43,6 +43,7 @@ LOCAL_APPS = [
     # Your stuff: custom apps go here
     'position',
     'market',
+    'feedback',
     #'sharestuff',
     #'userprofile',
 ]

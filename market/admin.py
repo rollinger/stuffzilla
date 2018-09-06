@@ -12,13 +12,13 @@ from .models import Stuff, SharingRequest, SharingOffer
 
 class StuffAdmin(admin.ModelAdmin):
     """ Stuff Admin """
-    list_display = ('title', 'sharetype', 'address', 'owner', 'active',)
+    list_display = ('image_tag', 'title', 'sharetype', 'address', 'owner', 'active',)
     list_display_links = ('title',)
 
     search_fields = ('title', 'description', 'address__area__country', 'address__area__city',)
     list_filter = ('sharetype', 'active', 'location_independent')
 
-    readonly_fields = ['created_at', 'updated_at']
+    readonly_fields = ['created_at', 'updated_at', 'image_tag']
     list_editable = ('active',)# 'sharetype','stufftype',)
     autocomplete_fields = ['owner','address']
 
@@ -37,6 +37,11 @@ class StuffAdmin(admin.ModelAdmin):
             'fields': ('created_at','updated_at',),
         }),
     )
+
+    def image_tag(self, obj):
+        return u'<img src="%s" style="width:100px;"/>' % obj.image.url
+    image_tag.short_description = 'Image'
+    image_tag.allow_tags = True
 
 admin.site.register(Stuff, StuffAdmin)
 

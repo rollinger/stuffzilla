@@ -37,3 +37,7 @@ Gobal merry-go-round for stuff that is waiting to be used, shared and enjoyed by
   The folder media/ and static/ need to be accessible by the django user.
   sudo docker-compose run --user=root django chown 1000:django media -R
   sudo docker-compose run --user=root django chown 1000:django stuffzilla/static -R
+
+  ## New Django App: xyz
+  sudo docker-compose run --user=root django python manage.py startapp xyz
+  sudo docker-compose run --user=root django chown 1000:django xyz -R
