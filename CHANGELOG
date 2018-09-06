@@ -1,0 +1,104 @@
+
+VERSION 0.3 [current]
+    Set up the Frontend Workflow
+    OK  Join Sharetype and Stufftype
+    OK  Define the 5 Sharing Workflows:
+        SW-1    Sharing Request not targeted at a Stuff Entry
+                => (PMW) Proximity Notification
+                => (SW-5) Sharing Offer of Stuff targeted at a Sharing Request
+                    => If sharing request user accepts the sharing offer create Sharing Agreement
+                => (SAW) Decline/Negotiation/Accept of Sharing Agreement(Sharing Offer)
+                => (RSAW) Review of Sharing Agreement
+        SW-2    Sharing Request targeted at a Stuff Entry
+                => (UNW) Stuff Owner Notification
+                => (SW-5) Sharing Offer of Stuff targeted at a Sharing Request
+                    => If sharing request user accepts the sharing offer create Sharing Agreement
+                => Decline/Negotiation/Accept of Sharing Agreement(Sharing Offer)
+                => Review of Sharing Agreement
+        SW-3    Sharing Request targeted at a Sharing Offer
+                => (UNW) Sharing Offer Owner Notification
+                    => If sharing offer user accepts the sharing request create Sharing Agreement
+                => (SAW) Decline/Negotiation/Accept of Sharing Agreement(Sharing Offer)
+                => (RSAW) Review of Sharing Agreement
+        SW-4    Sharing Offer of Stuff not targeted at a Sharing Request
+                => (PMW) Proximity Notification
+                => (SW-3) Continue with Sharing Request targeted at a Sharing Offer
+        SW-5    Sharing Offer of Stuff targeted at a Sharing Request
+                => (UNW) Sharing Request Owner Notification
+                    => If sharing request user accepts the sharing offer create Sharing Agreement
+                => (SAW) Decline/Negotiation/Accept of Sharing Agreement(Sharing Offer)
+                => (RSAW) Review of Sharing Agreement
+    OK  Define the Auxilliary Workflows:
+        SCW     Stuff Creation Workflow
+                => Form: title, image, description, address (userprofile), kind_of_sharing, active (True), Availability for Events
+                => Save (=>StuffLibrary), Save and add another (=>SCW), Cancel (Main Page)
+        UNW     User Notification
+                => A specific user gets a message about an event into the Notification Cue
+                => If the user is logged in the message will appear on the interface and marked unread
+                => If in the morning the user has unread notifications the user gets an email reminder unless he doesn't want email reminder (userprofile)
+        PMW     Proximity Notification
+                => All User observing the Area (userprofile) an Request or Offer was made (SW-1 & SW-4) will receive a message in their Notification Cue (which updates every other second).
+        SAW     Decline/Negotiation/Accept of Sharing Agreement(Sharing Offer)
+                => CRUD Terms by emitting_party (offer_user) and receiving_party (request_user) until all Terms are accepted by both sides and the sharing agreement as a whole is accepted by both parties
+                => If the accepted sharing agreement is completed both parties have to mark it as completed
+                => Continue with RSAW
+        RSAW    Review of Sharing Agreement
+                => Both Parties write a review for the sharing agreement
+                    - 5 star rating
+                    - rating comment
+    OK  REST & CRUD & Vue.js Implementations
+        OK   SCW     Stuff Creation Workflow
+            => Form: title, image, description, address (userprofile), kind_of_sharing, active (True)
+            OK   Set up REST API and Filters
+                OK   Make Filter on user and active
+                O   Implement Area & User Filter
+                OK  Implement Search Filter (from drf, not drf-filters)
+                OK  Implement Ordering Filter
+                OK   Optimize the fields
+                    OK   Address interpolate and editable
+                    OK   Area Interpolation into Address
+                    OK   Sharetype Display Text
+                    OK  Time Ago function
+            OK  Develop Vue.js Components
+                OK   Get Rid of double title (don't put it in the router)
+                OK   Test CSS Foundation ... it is loading...
+                OK Develop Sharezilla App Layout into Components
+                    => https://foundation.zurb.com/sites/docs/xy-grid.html
+                    OK   Router View for InterfaceComponent
+                    Sharezilla
+                        HeaderComponent
+                            LogoComponent
+                            MainMenuComponent
+                        InterfaceComponent <router-view>
+                            MarketComponent
+                            ProfileComponent
+                        FooterComponent
+                            FeedbackComponent
+                            TestimonialComponent
+VERSION 0.2:
+    Make Request based System
+    OK   Position App
+        OK   Area Model & Admin
+        OK   Address Model & Admin
+    OK   Market App
+        OK   Stuff Model & Admin
+            # OK    TODO [version 0.2]: Able to offer services as well?
+        OK   Sharing Request Model & Admin
+        OK   Sharing Offer Model & Admin
+    OK   Fix Image Permission Problem for Stuff
+        # OK    TODO [version 0.2]: image to app/media/stuff/<name>
+        # OK    TODO [version 0.2]: fix permission error 13 --- docker problem?
+
+VERSION 0.1:
+    Make basic Bookings possible in the Admin
+    OK   Stuff Model
+    OK   Booking Model
+    OK   Make the Workflow of these Raw Models in the Admin
+        OK   CRUD Stuff
+            OK  groups (general, location, flags)
+            OK  booking inlines
+            NO   Set default query set by availability
+            OK   Change general availability to active toogle
+            OK   Interpolate Location (Country,City) into list display
+        OK   CRUD Booking
+            OK list display
