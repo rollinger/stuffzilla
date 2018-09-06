@@ -1,5 +1,5 @@
 
-O..   GOAL 0.3.0.1
+OK   GOAL 0.3.0.1
     Test Axios to async load data via REST
     OK   Develop Feedback App with the TestimonialComponent in Vue.js
         OK   Model & Admin & API for Testimonial Component
@@ -8,10 +8,23 @@ O..   GOAL 0.3.0.1
     # OK    TODO [version 0.3]: show image in Admin
     # OK    TODO [version 0.3]: change the Image save path (media/stuff/)
     # OK    TODO [version 0.3]: show image in Admin
-
-    O   Howto Multi-Lang in django + vue.js? (also, best way for database field translations)
+    OK   Howto Multi-Lang in django + vue.js? (also, best way for database field translations)
+        https://github.com/vuejs/awesome-vue#i18n
+        => https://github.com/dkfbasel/vuex-i18n
+        => https://github.com/leonardovilarinho/vue-multilanguage
+        https://github.com/deschler/django-modeltranslation
 
 O   GOAL 0.3.0.2
+    O   Language support of Code (EN, DE, (PT, ES))
+        O   userprofile.interface_language
+        O   makemessages, compilemessages
+    O   Model translations https://github.com/deschler/django-modeltranslation
+        https://django-modeltranslation.readthedocs.io
+        O   Test with Testimonial Model
+    O   Integrate vuex-i18n into system
+        https://github.com/dkfbasel/vuex-i18n
+
+O   GOAL 0.3.1.0
     Develop Stuff Workflow (StuffComponent)
     O   Investigate and Implement Permissions (Guardian)
         O   Investigate DOC
@@ -37,7 +50,8 @@ O   GOAL 0.3.0.2
 O   GOAL 0.3.0.3
     Develop SharingRequest Workflow (Model & Admin & API for SharingRequestComponent)
     O   REST & CRUD & Vue.js Implementations
-        O   Define Guardian Permissions for
+        O   Define Guardian Permissions for SharingRequest
+
 O   GOAL 0.3.0.4
     Develop SharingOffer Workflow (Model & Admin & API for SharingOfferComponent)
 

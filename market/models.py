@@ -44,8 +44,7 @@ class Stuff(models.Model):
     # Long Description of the Item or Service
     description = models.TextField(_('Description'),
                 help_text=_('Long Description of the Item, Service or Event (max. 2000 characters)'), null=True, blank=True, max_length=2000)
-    # OK    TODO [version 0.3]: change the Image save path (media/stuff/)
-    # OK    TODO [version 0.3]: show image in Admin
+    
     image       = models.ImageField(_('Image'),
                 upload_to='stuff/', null=True, blank=True)
 

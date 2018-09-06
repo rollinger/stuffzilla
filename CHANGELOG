@@ -1,5 +1,19 @@
+VERSION 0.3.0.1 [current]
+    Test Axios to async load data via REST
+    OK   Develop Feedback App with the TestimonialComponent in Vue.js
+        OK   Model & Admin & API for Testimonial Component
+        OK   TestimonialComponent loads a random testimonial every x minutes and displays it in the footer.
+    # OK    TODO [version 0.3]: change the Image save path (media/stuff/ and media/testimonials)
+    # OK    TODO [version 0.3]: show image in Admin
+    # OK    TODO [version 0.3]: change the Image save path (media/stuff/)
+    # OK    TODO [version 0.3]: show image in Admin
+    OK   Howto Multi-Lang in django + vue.js? (also, best way for database field translations)
+        https://github.com/vuejs/awesome-vue#i18n
+        => https://github.com/dkfbasel/vuex-i18n
+        => https://github.com/leonardovilarinho/vue-multilanguage
+        https://github.com/deschler/django-modeltranslation
 
-VERSION 0.3 [current]
+VERSION 0.3
     Set up the Frontend Workflow
     OK  Join Sharetype and Stufftype
     OK  Define the 5 Sharing Workflows:
