@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "author": "Philipp Rollinger",
   "license": "MIT",
-  
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server",
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules",
@@ -37,11 +36,10 @@
     "vue-analytics": "^5.3.2",
     "vue-loader": "^13.3.0",
     "vue-meta": "^1.2.0",
-    
     "vue-raven": "^0.1.0",
     "vue-router": "^2.7.0",
     "vue-template-compiler": "^2.3.4",
-    
+    "vuex-i18n": "1.10.5",
     "vuex": "^2.3.1",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"

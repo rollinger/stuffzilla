@@ -1,7 +1,7 @@
 from rest_framework import routers
 from position.api import AreaViewSet, AddressViewSet
 from market.api import StuffViewSet
-from userprofile.api import UserViewSet
+from userprofile.api import UserProfileViewSet
 from feedback.api import TestimonialViewSet
 
 # DOC:
@@ -10,7 +10,7 @@ from feedback.api import TestimonialViewSet
 
 # Settings
 api = routers.DefaultRouter()
-api.register(r'users', UserViewSet)
+api.register(r'profiles', UserProfileViewSet)
 api.register(r'areas', AreaViewSet)
 api.register(r'addresses', AddressViewSet)
 api.register(r'stuff', StuffViewSet)

@@ -1,17 +1,18 @@
 from rest_framework import routers, serializers, viewsets
 from django.contrib.auth.models import User
-
+from . models import Profile
 
 #
-# USER API
+# USER PROFILE API
 #
-class UserSerializer(serializers.HyperlinkedModelSerializer):
+class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
     """ Serializer for the User Model """
+    user = serializers.StringRelatedField()
     class Meta:
-        model = User
-        fields = ('url', 'username',)
+        model = Profile
+        fields = ('url', 'user', 'language',)
 
-class UserViewSet(viewsets.ModelViewSet):
+class UserProfileViewSet(viewsets.ModelViewSet):
     """ ViewSets retrieving the User Objects """
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+    queryset = Profile.objects.all()
+    serializer_class = UserProfileSerializer

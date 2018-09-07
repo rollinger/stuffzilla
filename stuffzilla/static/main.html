@@ -2,7 +2,7 @@
 
 {% load static %}
 
-<html lang="en">
+<html lang="{{ request.LANGUAGE_CODE }}">
   <head>
     <meta charset="utf-8">
     <title>StuffZilla</title>
@@ -38,11 +38,7 @@
   </head>
 
   <body style="margin: 0">
-    <p>
-        {{ request.user }} <br>
-        {{ request.LANGUAGE_CODE }} <br>
-        {{ request.user.user_profile.language }}
-    </p>
+
     <div id="sharezilla-main">
 
         <!-- CONTENT DIV -->

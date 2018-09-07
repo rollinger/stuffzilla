@@ -1,34 +1,7 @@
 
 
-O..   GOAL 0.3.0.2
-    O   BUGFIXES:
-        O   ...
-    OK   Language support of Code (EN, DE, (PT, ES))
-        OK  add userprofile.interface_language
-        OK  add userprofile into user admin (StackedInline)
-        OK  can not find GNU xgettext
-        OK  makemessages,
-            Errors, string interpolation => use named args
-        OK   Hook userprofile.language to the LocaleMiddleware
-        OK   Translate one string and Test if the app changes
-            OK   compilemessages
-            OK   setting userprofile.language
-        OK   Test Anonymous
-    OK   Model translations https://github.com/deschler/django-modeltranslation
-        https://django-modeltranslation.readthedocs.io
-        OK  General Setup
-        OK  Admin Integration
-            https://django-modeltranslation.readthedocs.io/en/latest/admin.html
-            OK  Can I manually order the translation fields?
-                seamlessly
-        OK  Test with Testimonial Model
-            => Showcase in this app
-        OK  Rest Integration?
-            => seamlessly !!!
-        
-    O   Integrate vuex-i18n into system
-        https://github.com/dkfbasel/vuex-i18n
-        O   Test with Testimonial Model
+
+
 
 O   GOAL 0.3.0.3
     Permissions Django Guardian
@@ -36,6 +9,10 @@ O   GOAL 0.3.0.3
         O   Investigate DOC
         O   Define Guardian Permissions for Stuff
         O   Integrate Guardian and Rest
+    O   BUGFIXES:
+        O   Foundation js is not really working. See the menu
+            console errors?
+        O   [vue-analytics] It's not possible to load Google Analytics script
 
 O   GOAL 0.3.0.4
     Add Auth System
@@ -54,6 +31,11 @@ O   GOAL 0.4
         Develop Stuff Workflow (Model & Admin & API for StuffComponent)
         O   Define Guardian Permissions for Stuff
         O   Update ModelTranslation Fields (if applicable)
+
+
+        O   Update vuex-i18n translation Files
+
+
         O   REST & CRUD & Vue.js Implementations
             O   SW-1    Sharing Request not targeted at a Stuff Entry
             O   SW-5    Sharing Offer of Stuff targeted at a Sharing Request
@@ -102,9 +84,12 @@ O   GOAL 0.5
         O   Change Db to MySQL
         O   Favicon & Logo
         O   Translate App to PT, DE
+    O   Write Ecosystem Summary
+        Which 3rd Party App are used?
     O   Run User Acceptance Tests
     O   Deploy on Digital Ocean
         https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
+        https://github.com/vchaptsev/cookiecutter-django-vue
     O   Start Marketing Campaign
 
 O   GOAL 0.3.1.0

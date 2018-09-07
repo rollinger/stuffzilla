@@ -5,6 +5,11 @@
         </div>
         <div class="cell medium-auto medium-cell-block-container">
             <sz-interface></sz-interface>
+            <!--p>
+                {{ request.user }} <br>
+                {{ request.LANGUAGE_CODE }} <br>
+                {{ request.user.user_profile.language }}
+            </p-->
         </div>
         <div class="cell shrink header medium-cell-block-container">
             <sz-footer></sz-footer>

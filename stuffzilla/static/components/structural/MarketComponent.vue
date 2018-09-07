@@ -6,7 +6,8 @@
 <template lang="html">
     <div>
         <!-- template code-->
-        <h1>Market</h1>
+        <h1>{{ $t( 'market.heading' ) }}</h1>
+        <p>Current Language: {{ $i18n.locale() }}</p>
     </div>
 </template>
 
