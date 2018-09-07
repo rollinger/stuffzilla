@@ -1,0 +1,115 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-07 07:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: position/models.py:14
+msgid "Country"
+msgstr ""
+
+#: position/models.py:15
+msgid "Country the Area is located in."
+msgstr ""
+
+#: position/models.py:17
+msgid "Region"
+msgstr ""
+
+#: position/models.py:18
+msgid "Region the Area is located in."
+msgstr ""
+
+#: position/models.py:20
+msgid "City"
+msgstr ""
+
+#: position/models.py:21
+msgid "City the Area is located in."
+msgstr ""
+
+#: position/models.py:23
+msgid "Verified Area"
+msgstr ""
+
+#: position/models.py:24
+msgid "If the specified area is verified to be existent and relevant"
+msgstr ""
+
+#: position/models.py:26 position/models.py:70
+msgid "Created at"
+msgstr ""
+
+#: position/models.py:27 position/models.py:71
+msgid "Updated at"
+msgstr ""
+
+#: position/models.py:36
+msgid "Area"
+msgstr ""
+
+#: position/models.py:37
+msgid "Areas"
+msgstr ""
+
+#: position/models.py:54
+msgid "Street"
+msgstr ""
+
+#: position/models.py:55
+msgid "Street Name"
+msgstr ""
+
+#: position/models.py:56
+msgid "Street Number"
+msgstr ""
+
+#: position/models.py:57
+msgid "House Number"
+msgstr ""
+
+#: position/models.py:58
+msgid "Address Supplements"
+msgstr ""
+
+#: position/models.py:59
+msgid "Additional Information (Appartment Number,...)"
+msgstr ""
+
+#: position/models.py:60
+msgid "Zip Code"
+msgstr ""
+
+#: position/models.py:61
+msgid "Area Code"
+msgstr ""
+
+#: position/models.py:63
+msgid "Owner of the Item or Service"
+msgstr ""
+
+#: position/models.py:68
+msgid "User creating the Address"
+msgstr ""
+
+#: position/models.py:109
+msgid "Address"
+msgstr ""
+
+#: position/models.py:110
+msgid "Addresses"
+msgstr ""

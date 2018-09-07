@@ -36,12 +36,13 @@ class Area(models.Model):
         verbose_name = _('Area')
         verbose_name_plural = _('Areas')
         ordering = ['country','city']
+        unique_together = ['city','region','country']
         # O    TODO [version 0.5]: Add Db Indexes on cities so retrieval is faster https://docs.djangoproject.com/en/2.1/ref/models/indexes/
         # indexes = []
 
 
 
-# O    TODO [version 0.2]: Develop Address Model
+# OK    TODO [version 0.2]: Develop Address Model
 class AddressManager(models.Manager):
     """ Manager wrapping the complex retrieval operations """
     pass
@@ -51,13 +52,13 @@ class Address(models.Model):
     """
 
     street          = models.CharField(_('Street'),
-                    help_text=_(''), max_length=255)
+                    help_text=_('Street Name'), max_length=255)
     street_number   = models.CharField(_('Street Number'),
-                    help_text=_(''), max_length=55)
+                    help_text=_('House Number'), max_length=55)
     supplement      = models.CharField(_('Address Supplements'),
-                    help_text=_(''), max_length=255, null=True, blank=True)
+                    help_text=_('Additional Information (Appartment Number,...)'), max_length=255, null=True, blank=True)
     zipcode         = models.CharField(_('Zip Code'),
-                    help_text=_(''), max_length=55, null=True, blank=True)
+                    help_text=_('Area Code'), max_length=55, null=True, blank=True)
     area            = models.ForeignKey(Area,
                     help_text=_('Owner of the Item or Service'),
                     related_name="addresses", on_delete=models.PROTECT)

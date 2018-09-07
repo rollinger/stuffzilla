@@ -1,0 +1,219 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-07 07:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: market/models.py:12
+msgid "Lend an Item"
+msgstr ""
+
+#: market/models.py:13
+msgid "Share an Item"
+msgstr ""
+
+#: market/models.py:14
+msgid "Give an Item"
+msgstr ""
+
+#: market/models.py:15
+msgid "Provide a Service"
+msgstr ""
+
+#: market/models.py:16
+msgid "Join an Event"
+msgstr ""
+
+#: market/models.py:20 market/models.py:21 market/models.py:22
+msgid "Item"
+msgstr ""
+
+#: market/models.py:23
+msgid "Service"
+msgstr ""
+
+#: market/models.py:24
+msgid "Event"
+msgstr ""
+
+#: market/models.py:40
+msgid "Owner of the Item or Service"
+msgstr ""
+
+#: market/models.py:42
+msgid "Title"
+msgstr ""
+
+#: market/models.py:43
+msgid "Title Description of the Item, Service or Event (max. 255 characters)"
+msgstr ""
+
+#: market/models.py:45
+msgid "Description"
+msgstr ""
+
+#: market/models.py:46
+msgid "Long Description of the Item, Service or Event (max. 2000 characters)"
+msgstr ""
+
+#: market/models.py:48
+msgid "Image"
+msgstr ""
+
+#: market/models.py:52 market/models.py:135
+msgid "Kind of Sharing"
+msgstr ""
+
+#: market/models.py:53
+msgid "For which kind of sharing is this Stuff available?"
+msgstr ""
+
+#: market/models.py:55 market/models.py:144 market/models.py:219
+msgid "Active"
+msgstr ""
+
+#: market/models.py:56
+msgid "If the Item or Service is generally available"
+msgstr ""
+
+#: market/models.py:57
+msgid "Location Independent"
+msgstr ""
+
+#: market/models.py:58
+msgid "If the Item or Service is not dependent on its location"
+msgstr ""
+
+#: market/models.py:63
+msgid "Location (Address & Area) the Item or Service is located"
+msgstr ""
+
+#: market/models.py:67 market/models.py:147 market/models.py:222
+msgid "Created at"
+msgstr ""
+
+#: market/models.py:68 market/models.py:148 market/models.py:223
+msgid "Updated at"
+msgstr ""
+
+#: market/models.py:95
+msgid "Independent of Location"
+msgstr ""
+
+#: market/models.py:100 market/models.py:101
+msgid "Stuff"
+msgstr ""
+
+#: market/models.py:121
+msgid "User who issued the sharing request"
+msgstr ""
+
+#: market/models.py:124
+msgid "Area for the sharing request"
+msgstr ""
+
+#: market/models.py:126
+msgid "Sharing Callout"
+msgstr ""
+
+#: market/models.py:127
+msgid "Say what you need!"
+msgstr ""
+
+#: market/models.py:132
+msgid "Stuff this Sharing Request relates to. (Optional)"
+msgstr ""
+
+#: market/models.py:136
+msgid "For which kind of sharing is this Sharing Request intended?"
+msgstr ""
+
+#: market/models.py:138
+msgid "Start Sharing"
+msgstr ""
+
+#: market/models.py:139
+msgid "When do you want to start?"
+msgstr ""
+
+#: market/models.py:140
+msgid "End Sharing"
+msgstr ""
+
+#: market/models.py:141
+msgid "When do you want to end?"
+msgstr ""
+
+#: market/models.py:145
+msgid "If the sharing request is active and not yet satisfied"
+msgstr ""
+
+#: market/models.py:158
+#, python-format
+msgid ""
+"%(user)s requested to %(sharetype)s.\n"
+"%(callout)s\n"
+"Happened in %(area)s %(humantime)s"
+msgstr ""
+
+#: market/models.py:180
+msgid "Sharing Request"
+msgstr ""
+
+#: market/models.py:181
+msgid "Sharing Requests"
+msgstr ""
+
+#: market/models.py:203
+msgid "Sharing Request this Sharing Offer relates to"
+msgstr ""
+
+#: market/models.py:208
+msgid "User emitting this Sharing Offer"
+msgstr ""
+
+#: market/models.py:213
+msgid "Stuff this Sharing Offer relates to"
+msgstr ""
+
+#: market/models.py:215
+msgid "Sharing Pitch"
+msgstr ""
+
+#: market/models.py:216
+msgid "Say what you can share!"
+msgstr ""
+
+#: market/models.py:220
+msgid "If the sharing offer is active and not yet satisfied"
+msgstr ""
+
+#: market/models.py:233
+#, python-format
+msgid ""
+"%(user)s offered to %(sharetype)s.\n"
+"%(stuff)s\n"
+"Happened in %(area)s %(humantime)s"
+msgstr ""
+
+#: market/models.py:249
+msgid "Sharing Offer"
+msgstr ""
+
+#: market/models.py:250
+msgid "Sharing Offers"
+msgstr ""

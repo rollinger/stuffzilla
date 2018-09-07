@@ -1,0 +1,290 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-09-07 07:55+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: config/settings/base.py:115
+msgid "English"
+msgstr ""
+
+#: config/settings/base.py:116
+msgid "German"
+msgstr ""
+
+#: config/settings/base.py:117
+msgid "Portuguese"
+msgstr ""
+
+#: config/settings/base.py:118
+msgid "Spanish"
+msgstr ""
+
+#: feedback/models.py:20
+msgid "Name of the Person"
+msgstr ""
+
+#: feedback/models.py:21 feedback/models.py:27
+msgid "Name of the Person making the testimonial (max. 255 characters)"
+msgstr ""
+
+#: feedback/models.py:22
+msgid "Image of the Person"
+msgstr ""
+
+#: feedback/models.py:24
+msgid "Licence/Credentials for the image"
+msgstr ""
+
+#: feedback/models.py:25
+msgid "Make sure you hold the copyrights for the image"
+msgstr ""
+
+#: feedback/models.py:26
+msgid "Title of the Testimonial"
+msgstr ""
+
+#: feedback/models.py:28
+msgid "Content of the Testimonial"
+msgstr ""
+
+#: feedback/models.py:29
+msgid "The quoted part of the testimonial (max. 2000 characters)"
+msgstr ""
+
+#: feedback/models.py:31
+msgid "Published"
+msgstr ""
+
+#: feedback/models.py:32
+msgid "If the testimonial is published"
+msgstr ""
+
+#: feedback/models.py:34 feedback/models.py:59 sharestuff/models.py:61
+#: sharestuff/models.py:145 sharestuff/models.py:196 sharestuff/models.py:226
+msgid "Created at"
+msgstr ""
+
+#: feedback/models.py:35 feedback/models.py:60 sharestuff/models.py:62
+#: sharestuff/models.py:197 sharestuff/models.py:227
+msgid "Updated at"
+msgstr ""
+
+#: feedback/models.py:43
+msgid "Testimonial"
+msgstr ""
+
+#: feedback/models.py:44
+msgid "Testimonials"
+msgstr ""
+
+#: feedback/models.py:70
+msgid "Feedback"
+msgstr ""
+
+#: feedback/models.py:71
+msgid "Feedbacks"
+msgstr ""
+
+#: sharestuff/models.py:9
+msgid "Lend"
+msgstr ""
+
+#: sharestuff/models.py:10
+msgid "Share"
+msgstr ""
+
+#: sharestuff/models.py:11
+msgid "Gather"
+msgstr ""
+
+#: sharestuff/models.py:12
+msgid "Sell"
+msgstr ""
+
+#: sharestuff/models.py:26
+msgid "Owner of the Item or Service"
+msgstr ""
+
+#: sharestuff/models.py:29 sharestuff/models.py:142
+msgid "Title"
+msgstr ""
+
+#: sharestuff/models.py:30
+msgid "Short Description of the Item or Service (max. 255 characters)"
+msgstr ""
+
+#: sharestuff/models.py:33
+msgid "Description"
+msgstr ""
+
+#: sharestuff/models.py:34
+msgid "Long Description of the Item or Service (max. 2000 characters)"
+msgstr ""
+
+#: sharestuff/models.py:38
+msgid "Image"
+msgstr ""
+
+#: sharestuff/models.py:42
+msgid "Country"
+msgstr ""
+
+#: sharestuff/models.py:43 sharestuff/models.py:47
+msgid "Country the Item or Service is available"
+msgstr ""
+
+#: sharestuff/models.py:44
+msgid "City"
+msgstr ""
+
+#: sharestuff/models.py:45
+msgid "City the Item or Service is available"
+msgstr ""
+
+#: sharestuff/models.py:46
+msgid "Street"
+msgstr ""
+
+#: sharestuff/models.py:49
+msgid "Longitude"
+msgstr ""
+
+#: sharestuff/models.py:50
+msgid "Latitude"
+msgstr ""
+
+#: sharestuff/models.py:53
+msgid "Active"
+msgstr ""
+
+#: sharestuff/models.py:54
+msgid "If the Item or Service is generally available"
+msgstr ""
+
+#: sharestuff/models.py:55
+msgid "Location Independent"
+msgstr ""
+
+#: sharestuff/models.py:56
+msgid "If the Item or Service is not dependent on its location"
+msgstr ""
+
+#: sharestuff/models.py:57
+msgid "Type of Sharing"
+msgstr ""
+
+#: sharestuff/models.py:58
+msgid "Which kind of sharing is this Item or Service available"
+msgstr ""
+
+#: sharestuff/models.py:90
+msgid "Independent of Location"
+msgstr ""
+
+#: sharestuff/models.py:102 sharestuff/models.py:103
+msgid "Stuff"
+msgstr ""
+
+#: sharestuff/models.py:116 sharestuff/models.py:163
+msgid "Booking initiated"
+msgstr ""
+
+#: sharestuff/models.py:117 sharestuff/models.py:164
+msgid "Transaction initiated"
+msgstr ""
+
+#: sharestuff/models.py:118 sharestuff/models.py:165
+msgid "Transaction ended"
+msgstr ""
+
+#: sharestuff/models.py:119 sharestuff/models.py:166
+msgid "Booking ended"
+msgstr ""
+
+#: sharestuff/models.py:137
+msgid "User who issued the request"
+msgstr ""
+
+#: sharestuff/models.py:139
+msgid "Request Location"
+msgstr ""
+
+#: sharestuff/models.py:140
+msgid "Country and City your request is targeted at"
+msgstr ""
+
+#: sharestuff/models.py:143
+msgid "What Item or Service do you request?"
+msgstr ""
+
+#: sharestuff/models.py:151
+#, python-format
+msgid "%s in %s requested %s (%s m ago)"
+msgstr ""
+
+#: sharestuff/models.py:154
+msgid "Request"
+msgstr ""
+
+#: sharestuff/models.py:155
+msgid "Requests"
+msgstr ""
+
+#: sharestuff/models.py:176 sharestuff/models.py:183
+msgid "Stuff the booking relates to"
+msgstr ""
+
+#: sharestuff/models.py:178 sharestuff/models.py:185
+msgid "User initiating the booking"
+msgstr ""
+
+#: sharestuff/models.py:181 sharestuff/models.py:188
+msgid "Booking State"
+msgstr ""
+
+#: sharestuff/models.py:182
+msgid "nKey(Stuff,"
+msgstr ""
+
+#: sharestuff/models.py:189
+msgid "State of the Booking"
+msgstr ""
+
+#: sharestuff/models.py:193
+msgid "Booked From"
+msgstr ""
+
+#: sharestuff/models.py:194
+msgid "Booked Until"
+msgstr ""
+
+#: sharestuff/models.py:209
+msgid "Booking"
+msgstr ""
+
+#: sharestuff/models.py:210
+msgid "Bookings"
+msgstr ""
+
+#: sharestuff/models.py:235
+msgid "Booking Event"
+msgstr ""
+
+#: sharestuff/models.py:236
+msgid "Bookings Events"
+msgstr ""

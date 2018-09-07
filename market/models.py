@@ -44,7 +44,7 @@ class Stuff(models.Model):
     # Long Description of the Item or Service
     description = models.TextField(_('Description'),
                 help_text=_('Long Description of the Item, Service or Event (max. 2000 characters)'), null=True, blank=True, max_length=2000)
-    
+
     image       = models.ImageField(_('Image'),
                 upload_to='stuff/', null=True, blank=True)
 
@@ -155,7 +155,8 @@ class SharingRequest(models.Model):
         {callout}
         happened in {area} {humantime} ago.
         """
-        sharing_request = _("%s requested to %s.\n%s\nHappened in %s %s") % (self.user.get_short_name(), self.sharetype, self.callout, self.area, naturaltime(self.created_at))
+        sharing_request = _("%(user)s requested to %(sharetype)s.\n%(callout)s\nHappened in %(area)s %(humantime)s") % {'user': self.user.get_short_name(), 'sharetype': self.sharetype, 'callout': self.callout, 'area': self.area, 'humantime': naturaltime(self.created_at)}
+
         return sharing_request
 
     def emitting_party(self):
@@ -225,10 +226,11 @@ class SharingOffer(models.Model):
 
     def __str__(self):
         """
-        {user} offered to {stuff.sharetype} a {stuff.title}
+        {user} offered to {stuff.sharetype}.
+        {stuff.title}
         Happened in {self.stuff.address.area} {humantime} ago
         """
-        sharing_offer = _("%s offered to %s.\n%s\nHappened in %s %s") % (self.user.get_short_name(), self.stuff.sharetype, self.stuff.title, self.stuff.address.area, naturaltime(self.created_at))
+        sharing_offer = _("%(user)s offered to %(sharetype)s.\n%(stuff)s\nHappened in %(area)s %(humantime)s") %  {'user': self.user.get_short_name(), 'sharetype': self.stuff.sharetype, 'stuff': self.stuff.title, 'area': self.stuff.address.area, 'humantime': naturaltime(self.created_at)}
         return sharing_offer
 
     def emitting_party(self):

@@ -38,8 +38,13 @@
   </head>
 
   <body style="margin: 0">
-
+    <p>
+        {{ request.user }} <br>
+        {{ request.LANGUAGE_CODE }} <br>
+        {{ request.user.user_profile.language }}
+    </p>
     <div id="sharezilla-main">
+
         <!-- CONTENT DIV -->
     </div>
 

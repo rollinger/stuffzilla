@@ -1,9 +1,19 @@
 from django.contrib import admin
+from django.contrib.auth.models import User
+from django.contrib.auth.admin import UserAdmin
+from . models import Profile
 
-from .models import Profile, Location
 
-class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('__str__', )#'available', 'sharetype', 'city', 'country', 'owner',)
-    #search_fields = ('title', 'available', 'description',)
-    #list_filter = 'available', 'sharetype',
-admin.site.register(Profile, ProfileAdmin)
+# unregister old user admin
+admin.site.unregister(User)
+
+class UserProfileInline(admin.StackedInline):
+    model = Profile
+    max_num = 1
+    can_delete = False
+
+class ProfileUserAdmin(UserAdmin):
+    inlines = [UserProfileInline]
+
+# register new user admin that includes a UserProfile
+admin.site.register(User, ProfileUserAdmin)

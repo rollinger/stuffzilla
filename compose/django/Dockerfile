@@ -39,6 +39,9 @@ RUN mkdir -p /home/django/ && \
     chmod +x /home/django/.ptpython_history && \
     chown django /home/django/.ptpython_history
 
+RUN apt-get update && apt-get install -y \
+        gettext
+
 COPY . /app
 WORKDIR /app
 

@@ -7,7 +7,9 @@ https://docs.djangoproject.com/en/dev/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/dev/ref/settings/
 '''
+import os
 import environ
+from django.utils.translation import gettext_lazy as _
 
 ROOT_DIR = environ.Path(__file__) - 3  # (stuffzilla/config/settings/base.py - 3 = stuffzilla/)
 APPS_DIR = ROOT_DIR.path('stuffzilla')
@@ -44,8 +46,7 @@ LOCAL_APPS = [
     'position',
     'market',
     'feedback',
-    #'sharestuff',
-    #'userprofile',
+    'userprofile',
 ]
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
@@ -56,9 +57,12 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'userprofile.middleware.ProfileLocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
@@ -108,7 +112,20 @@ DATABASES['default']['ATOMIC_REQUESTS'] = True
 TIME_ZONE = 'UTC'
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#language-code
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
+
+LANGUAGES = [
+    ('en', _('English')),
+    ('de', _('German')),
+    ('pt', _('Portuguese')),
+    ('es', _('Spanish')),
+]
+LOCALE_PATHS = (
+    os.path.join(ROOT_DIR, 'feedback/locale'),
+    os.path.join(ROOT_DIR, 'market/locale'),
+    os.path.join(ROOT_DIR, 'position/locale'),
+    os.path.join(ROOT_DIR, 'userprofile/locale'),
+)
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
 USE_I18N = True
