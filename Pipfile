@@ -24,6 +24,7 @@ raven = "*"
 djangorestframework-filters = "*"
 django-filter = "==1.1"
 django-guardian = "*"
+django-modeltranslation = "==0.13b1"
 
 [dev-packages]
 Werkzeug = "*"

@@ -1,9 +1,10 @@
 from django.contrib import admin
-
+from modeltranslation.admin import TranslationAdmin
 from .models import Testimonial
 
-class TestimonialAdmin(admin.ModelAdmin):
-    """ Stuff Admin """
+#admin.ModelAdmin
+class TestimonialAdmin(TranslationAdmin):
+    """ Testimonial Admin with Translation"""
     list_display = ('title', 'image_tag', 'person_name', 'published',)
     list_display_links = ('title',)
 
@@ -16,7 +17,13 @@ class TestimonialAdmin(admin.ModelAdmin):
     save_on_top = True
     fieldsets = (
         ('General', {
-            'fields': ('title', 'content')
+            'fields': ('title_en', 'content_en')
+        }),
+        ('Translations', {
+            'classes': ('collapse', 'closed'),
+            'fields': ('title_de', 'content_de',
+                    'title_pt', 'content_pt',
+                    'title_es', 'content_es')
         }),
         ('Person', {
             'fields': ('person_name', 'person_image', 'image_licence'),

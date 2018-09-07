@@ -3,7 +3,7 @@
 O..   GOAL 0.3.0.2
     O   BUGFIXES:
         O   ...
-    O..   Language support of Code (EN, DE, (PT, ES))
+    OK   Language support of Code (EN, DE, (PT, ES))
         OK  add userprofile.interface_language
         OK  add userprofile into user admin (StackedInline)
         OK  can not find GNU xgettext
@@ -14,11 +14,18 @@ O..   GOAL 0.3.0.2
             OK   compilemessages
             OK   setting userprofile.language
         OK   Test Anonymous
-        
-    O   Model translations https://github.com/deschler/django-modeltranslation
+    OK   Model translations https://github.com/deschler/django-modeltranslation
         https://django-modeltranslation.readthedocs.io
-        O   Test with Testimonial Model
-
+        OK  General Setup
+        OK  Admin Integration
+            https://django-modeltranslation.readthedocs.io/en/latest/admin.html
+            OK  Can I manually order the translation fields?
+                seamlessly
+        OK  Test with Testimonial Model
+            => Showcase in this app
+        OK  Rest Integration?
+            => seamlessly !!!
+        
     O   Integrate vuex-i18n into system
         https://github.com/dkfbasel/vuex-i18n
         O   Test with Testimonial Model
@@ -46,24 +53,29 @@ O   GOAL 0.4
     O   GOAL 0.3.1
         Develop Stuff Workflow (Model & Admin & API for StuffComponent)
         O   Define Guardian Permissions for Stuff
+        O   Update ModelTranslation Fields (if applicable)
         O   REST & CRUD & Vue.js Implementations
             O   SW-1    Sharing Request not targeted at a Stuff Entry
             O   SW-5    Sharing Offer of Stuff targeted at a Sharing Request
     O   GOAL 0.3.2
         Develop SharingRequest Workflow (Model & Admin & API for SharingRequestComponent)
         O   Define Guardian Permissions for SharingRequest
+        O   Update ModelTranslation Fields (if applicable)
         O   REST & CRUD & Vue.js Implementations
     O   GOAL 0.3.3
         Develop SharingOffer Workflow (Model & Admin & API for SharingOffer)
         O   Define Guardian Permissions for SharingRequest
+        O   Update ModelTranslation Fields (if applicable)
         O   REST & CRUD & Vue.js Implementations
     O   GOAL 0.3.4
         Develop SharingAgreement Workflow (Model & Admin & API for SharingAgreementComponent)
         O   Define Guardian Permissions for SharingAgreement
+        O   Update ModelTranslation Fields (if applicable)
         O   REST & CRUD & Vue.js Implementations
     O   GOAL 0.3.5
         Develop UserProfile Workflow (Model & Admin & API for UserProfileComponent)
         O   Define Guardian Permissions for UserProfile
+        O   Update ModelTranslation Fields (if applicable)
         O   REST & CRUD & Vue.js Implementations
             O   Model UserProfile (1to1=> auth.user) (user can change)
                 O   Fields:
