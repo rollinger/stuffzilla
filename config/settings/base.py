@@ -39,7 +39,7 @@ THIRD_PARTY_APPS = [
     'django_filters',
     'rest_framework_filters',
     'django_extensions',
-    #'guardian',
+    'guardian',
 ]
 
 # Apps specific for this project go here.
@@ -231,7 +231,11 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication'
     ],
-    'DEFAULT_PERMISSION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES': [
+        # Default for access to the API: Authenticated
+        # (exceptions in the relevant api.py)
+        'rest_framework.permissions.IsAuthenticated',
+    ],
     'DEFAULT_PARSER_CLASSES': [
         'rest_framework.parsers.JSONParser',
         'rest_framework.parsers.FormParser',
@@ -247,7 +251,8 @@ REST_FRAMEWORK = {
 # AUTHENTICATION CONFIGURATION
 # ------------------------------------------------------------------------------
 AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend'
+    'django.contrib.auth.backends.ModelBackend',
+    'guardian.backends.ObjectPermissionBackend',
 ]
 
 # Custom user app defaults

@@ -9,7 +9,7 @@ class AreaManager(models.Manager):
     pass
 class Area(models.Model):
     """
-    An Area defines a City in a Region in a Country. Many assets link to instances of this model for search and retrieval based on geographic proximity. The verified flag means that it is an official Area.
+    An Area defines an urban area (such as a city) in a Region in a Country. Many assets link to instances of this model for search and retrieval based on geographic proximity. The verified flag means that it is an official Area.
     """
     country     = models.CharField(_('Country'),
                 help_text=_('Country the Area is located in.'),
@@ -17,6 +17,7 @@ class Area(models.Model):
     region      = models.CharField(_('Region'),
                 help_text=_('Region the Area is located in.'),
                 max_length=255, null=True, blank=True)
+    # O    TODO [version 0.]: Integrate the concept of Municipality and County into Area Model. E.g. Portugal => Grande Porto => Porto
     city        = models.CharField(_('City'),
                 help_text=_('City the Area is located in.'),
                 max_length=255)
@@ -36,13 +37,14 @@ class Area(models.Model):
         verbose_name = _('Area')
         verbose_name_plural = _('Areas')
         ordering = ['country','city']
-        unique_together = ['city','region','country']
+
+        #unique_together = ['city','region','country']
+
         # O    TODO [version 0.5]: Add Db Indexes on cities so retrieval is faster https://docs.djangoproject.com/en/2.1/ref/models/indexes/
         # indexes = []
 
 
 
-# OK    TODO [version 0.2]: Develop Address Model
 class AddressManager(models.Manager):
     """ Manager wrapping the complex retrieval operations """
     pass
@@ -64,6 +66,7 @@ class Address(models.Model):
                     related_name="addresses", on_delete=models.PROTECT)
                     # If an Area has Addresses first those addresses need to be deleted before deleting the Area itself
     # Creator of the Address
+    # O    TODO [version 0.]: Weird with profile FK... BUG?
     user       = models.ForeignKey(User,
                 help_text=_('User creating the Address'), null=True, blank=True,
                 related_name="addresses", on_delete=models.PROTECT)
@@ -109,5 +112,8 @@ class Address(models.Model):
         verbose_name = _('Address')
         verbose_name_plural = _('Addresses')
         ordering = ['street','street_number']
+
+        # O    TODO [version 0.]: unique together user & __str__ (or subset) [no user should have 2 of the same addresses] Overkill?
+        
         # O    TODO [version 0.5]: Add Db Indexes on street and number so retrieval is faster https://docs.djangoproject.com/en/2.1/ref/models/indexes/
         # indexes = []

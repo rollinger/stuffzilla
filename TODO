@@ -4,26 +4,48 @@
 
 
 O   GOAL 0.3.0.3
-    Permissions Django Guardian
-    O   Investigate and Implement Permissions (Guardian)
-        O   Investigate DOC
-        O   Define Guardian Permissions for Stuff
-        O   Integrate Guardian and Rest
-    O   BUGFIXES:
-        O   Foundation js is not really working. See the menu
-            console errors?
-        O   [vue-analytics] It's not possible to load Google Analytics script
+    Permissions Django Guardian & REST <= Vue/Axios
+    O..   Investigate and Implement Permissions (Guardian)
+        O..   Investigate DOC
+            - http://www.django-rest-framework.org/api-guide/permissions/
+            - http://www.django-rest-framework.org/api-guide/permissions/#djangoobjectpermissions
+            - https://django-guardian.readthedocs.io/
+            - https://github.com/django-guardian/django-guardian
+        OK   Define Guardian Permissions for Userprofile
+        OK Install
+        NO  Add Guardian to Admin
+        O..   Integrate Guardian, DRF and Vue/Axios
+    OK   Extend Model UserProfile (1to1=> auth.user) into Public, Private, Internal && extend Fields
+        OK   Public
+            OK Image (media/users)
+            OK short bio
+        OK   Private
+            OK want email reminder (default=True)
+            OK interface_language
+            OK Main Address (Main Area)
+            OK   current_area
+        OK   Internal
+            OK current subscription type
+            OK subscription from
+            OK subscription to
+    O   REST with Userprofile
+        OK   Setup Serializers and viewsets
+        O   Implement Permissions
+            PublicProfileViewSet
+                O   auth and anonymous list
+            PrivateProfileViewSet
+                O   Retrieve
+                O   Update
+        O   CRUD    = request user
+        O   R       = other user (only selected fields) read-only
+    O   Define Generic Way for objects and tasks
 
-O   GOAL 0.3.0.4
-    Add Auth System
-    O   Check what system best integrates with django+vue.js
-    O   Think about social media auth... good idea?
+    O   BUGFIX Foundation js is not really working. See the menu
+        console errors?
 
-O   GOAL 0.3.0.5
-    O   BUGFIX: psycopg2 warning
-        /usr/local/lib/python3.6/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
-    O   BUGFIX: migrations in position app
-        identical migrations gets created constantly...
+
+
+
 
 O   GOAL 0.4
     Core Workflow Development
@@ -31,11 +53,7 @@ O   GOAL 0.4
         Develop Stuff Workflow (Model & Admin & API for StuffComponent)
         O   Define Guardian Permissions for Stuff
         O   Update ModelTranslation Fields (if applicable)
-
-
-        O   Update vuex-i18n translation Files
-
-
+        O   Update vuex-i18n Frontend Translation Files
         O   REST & CRUD & Vue.js Implementations
             O   SW-1    Sharing Request not targeted at a Stuff Entry
             O   SW-5    Sharing Offer of Stuff targeted at a Sharing Request
@@ -43,47 +61,54 @@ O   GOAL 0.4
         Develop SharingRequest Workflow (Model & Admin & API for SharingRequestComponent)
         O   Define Guardian Permissions for SharingRequest
         O   Update ModelTranslation Fields (if applicable)
+        O   Update vuex-i18n Frontend Translation Files
         O   REST & CRUD & Vue.js Implementations
     O   GOAL 0.3.3
         Develop SharingOffer Workflow (Model & Admin & API for SharingOffer)
         O   Define Guardian Permissions for SharingRequest
         O   Update ModelTranslation Fields (if applicable)
+        O   Update vuex-i18n Frontend Translation Files
         O   REST & CRUD & Vue.js Implementations
     O   GOAL 0.3.4
         Develop SharingAgreement Workflow (Model & Admin & API for SharingAgreementComponent)
         O   Define Guardian Permissions for SharingAgreement
         O   Update ModelTranslation Fields (if applicable)
+        O   Update vuex-i18n Frontend Translation Files
         O   REST & CRUD & Vue.js Implementations
     O   GOAL 0.3.5
         Develop UserProfile Workflow (Model & Admin & API for UserProfileComponent)
         O   Define Guardian Permissions for UserProfile
         O   Update ModelTranslation Fields (if applicable)
+        O   Update vuex-i18n Frontend Translation Files
         O   REST & CRUD & Vue.js Implementations
-            O   Model UserProfile (1to1=> auth.user) (user can change)
-                O   Fields:
-                    - Image (media/users)
-                    - short bio
-                    - want email reminder (default=True)
-                    - interface_language
-                    - Address (Main Area)
-                    - Additional Areas to Observe
-            O   Model Account Information (1to1=> auth.user) (user can not directly change)
-                O   Fields:
-                    - booking dates
-                    - paypal info...
     O   GOAL 0.3.6
         Develop Feedback Workflow (Model & Admin & API for FeedbackComponent)
         O   Define Guardian Permissions for Feedback
         O   REST & CRUD & Vue.js Implementations
 
+    O   GOAL 0.3.7
+        Add Better Auth System
+        O   Check what system best integrates with django+vue.js
+        O   Check other sites auth systems.. mum? django packages
+        O   Think about social media auth... good idea?
+        O   Think about social media integration
+            => Share with friends (1 week off)
 
+    O   GOAL 0.3.8
+        BUGFIXES:
+        O   BUGFIX: [vue-analytics] It's not possible to load Google Analytics script
+        O   BUGFIX: psycopg2 warning
+            /usr/local/lib/python3.6/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+        O   BUGFIX: migrations in position app
+            identical migrations gets created constantly...
 
-O   GOAL 0.5
-    Deploy Production Server
+O   GOAL 0.4.1
+    Deploy on Production Server
     O   Make Application Production-ready
         O   Change Db to MySQL
         O   Favicon & Logo
-        O   Translate App to PT, DE
+        O   Translate App to PT, DE (whichever language I am living in currently)
+        O   Make fixture for initial data
     O   Write Ecosystem Summary
         Which 3rd Party App are used?
     O   Run User Acceptance Tests

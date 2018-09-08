@@ -7,7 +7,7 @@ from django.utils.translation import get_language, get_language_from_path
 from django.utils.cache import patch_vary_headers
 from django.utils import translation
 
-from . models import Profile
+from . models import PrivateProfile
 
 if django.VERSION >= (1, 10):
     from django.utils.deprecation import MiddlewareMixin as BaseMiddleware
@@ -26,9 +26,9 @@ class ProfileLocaleMiddleware(BaseMiddleware):
     def get_language_for_user(self, request):
         if request.user.is_authenticated():
             try:
-                profile = Profile.objects.get(user=request.user)
+                profile = PrivateProfile.objects.get(owner=request.user)
                 return profile.language
-            except Profile.DoesNotExist:
+            except PrivateProfile.DoesNotExist:
                 pass
         return translation.get_language_from_request(request)
 
