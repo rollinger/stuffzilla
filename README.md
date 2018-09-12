@@ -8,8 +8,11 @@ Gobal merry-go-round for stuff that is waiting to be used, shared and enjoyed by
   </a>
 
   ## Apps
+  - config
+  - feedback
+  - market
+  - position
   - stuffzilla: Main
-  - sharestuff: Stuff, Booking, BookingEvent
   - userprofile: Extension for User
 
   ## License

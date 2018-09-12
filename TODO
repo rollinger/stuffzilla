@@ -1,54 +1,61 @@
 
 
 
+GOAL 0.3.0.5
+    Make Language Selection work
+    OK  Write Language Model that maps config Language settings
+        - lang_code
+        - Language
+        - Country
+        - supported (Bool)
+    OK   ModelTranslation for fields: Language & Country
+    O..   REST API
+    O   Global Endpoints in Sharezilla.vue
+    O   Handle private_profile.language in Profile
+        Make language FK
+    O   Handle private_profile.language in Menu
+    O   BUGFIXES
+    O   FUTURE FEATURE LIST
+        # O    TODO [version 0.]: position.Language: Add Flag icon to Language Model
+        # O    TODO [version 0.]: position.Language: Check in save if supported = True that the code is present in the config.LANGUAGE Settings
+        # O    TODO [version 0.]: rename position app to something like utils
 
+GOAL 0.3.0.6
+    Make Area Selection work
+    O   Rewrite Area Model (TreeModel)
+        [Country] ==> [Region] ==> [County] ==> [City]
+        Reason: Queries on assoc Models do it incremental. If City does not return anything, filter for County, and so on. QS Result Cap possible == 100
+    O   Handle private_profile.current_area
+        O   Write Area Component
+            - popover for composition as a component??? !!!
+    O   BUGFIXES
+    O   FUTURE FEATURE LIST
 
-O   GOAL 0.3.0.3
-    Permissions Django Guardian & REST <= Vue/Axios
-    O..   Investigate and Implement Permissions (Guardian)
-        O..   Investigate DOC
-            - http://www.django-rest-framework.org/api-guide/permissions/
-            - http://www.django-rest-framework.org/api-guide/permissions/#djangoobjectpermissions
-            - https://django-guardian.readthedocs.io/
-            - https://github.com/django-guardian/django-guardian
-        OK   Define Guardian Permissions for Userprofile
-        OK Install
-        NO  Add Guardian to Admin
-        O..   Integrate Guardian, DRF and Vue/Axios
-    OK   Extend Model UserProfile (1to1=> auth.user) into Public, Private, Internal && extend Fields
-        OK   Public
-            OK Image (media/users)
-            OK short bio
-        OK   Private
-            OK want email reminder (default=True)
-            OK interface_language
-            OK Main Address (Main Area)
-            OK   current_area
-        OK   Internal
-            OK current subscription type
-            OK subscription from
-            OK subscription to
-    O   REST with Userprofile
-        OK   Setup Serializers and viewsets
-        O   Implement Permissions
-            PublicProfileViewSet
-                O   auth and anonymous list
-            PrivateProfileViewSet
-                O   Retrieve
-                O   Update
-        O   CRUD    = request user
-        O   R       = other user (only selected fields) read-only
-    O   Define Generic Way for objects and tasks
+GOAL 0.3.0.7
+    Image Handling
+    O   Handle file upload in Profile
+        O   Upload Button does not change language sensitive Text (BROWSE)
 
-    O   BUGFIX Foundation js is not really working. See the menu
-        console errors?
+GOAL 0.3.0.6
+    Adress Handling
+    O   Handle private_profile.main_address
+        - popover for composition as a component??? !!!
 
+0.3.0.?
+   O    Rethink the workflows,
+   O    preliminary auth workflow
 
+0.3.0.?
+    Audit Codebase
+    O   Delete sharestuff app (fragment clutter)
+    O   Write Doc and read every Class
+    O   Compile WORKFLOWS into one document
+    O   Make skeletons for future features
 
 
 
 O   GOAL 0.4
-    Core Workflow Development
+    Core Application Workflow Development
     O   GOAL 0.3.1
         Develop Stuff Workflow (Model & Admin & API for StuffComponent)
         O   Define Guardian Permissions for Stuff
@@ -85,15 +92,16 @@ O   GOAL 0.4
         Develop Feedback Workflow (Model & Admin & API for FeedbackComponent)
         O   Define Guardian Permissions for Feedback
         O   REST & CRUD & Vue.js Implementations
-
     O   GOAL 0.3.7
         Add Better Auth System
         O   Check what system best integrates with django+vue.js
         O   Check other sites auth systems.. mum? django packages
+            - mammami...?
+            - vue cookiecutter...?
         O   Think about social media auth... good idea?
         O   Think about social media integration
             => Share with friends (1 week off)
-
+        O   AGB & Data Security !!!
     O   GOAL 0.3.8
         BUGFIXES:
         O   BUGFIX: [vue-analytics] It's not possible to load Google Analytics script
@@ -103,98 +111,40 @@ O   GOAL 0.4
             identical migrations gets created constantly...
 
 O   GOAL 0.4.1
-    Deploy on Production Server
+    Deploy on Production Server (early test phase)
     O   Make Application Production-ready
         O   Change Db to MySQL
         O   Favicon & Logo
         O   Translate App to PT, DE (whichever language I am living in currently)
+            Who can translate that for me?
         O   Make fixture for initial data
     O   Write Ecosystem Summary
         Which 3rd Party App are used?
     O   Run User Acceptance Tests
+        Test every workflow and
     O   Deploy on Digital Ocean
         https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-16-04
         https://github.com/vchaptsev/cookiecutter-django-vue
     O   Start Marketing Campaign
+        Porto
 
-O   GOAL 0.3.1.0
-    Develop Stuff Workflow (StuffComponent)
+O   GOAL 0.4.2
+    Implement changes from 0.4.1
 
-    O
-        O   StuffComponent (all in one component)
-            Aggregation of the CRUD Components
-            O   StuffListComponent
-                O   Filter on active & area
-            O   StuffDetailComponent
-            O   StuffEditComponent
-                O   Permission user == owner
-            O   StuffCreateComponent => StuffEditComponent
-                O   Permission user == owner if Edit
-            O   StuffDeleteComponent
-                O   Permission user == owner
-        O   Stuff List Entry (image, title, sharetype, time ago)
-        O   Stuff Detail View
-        O   Edit Details
-        O   New Stuff
-        => Save (=>profile/StuffLibrary), Save and add another (=>SCW), Cancel (Main Page)
+O   GOAL 0.4.3
+    Subscription Implementation: Enable the Users to Subscribe
+    O   Rethink the best way to make money
+        MAX: User using the App
+        MAX:
 
 
 
 
-O   GOAL 0.3.1:
-    Develop Main Page
-
-O   GOAL 0.3.2
-    Develop Sharing Agreement, Sharing Terms and Workflow
-
-O   GOAL 0.3.3
-    Develop Sharing Review and Workflow
-
-O   GOAL 0.4.1:
-    Set up Review Model & Admin
-    O   Add "Negotiate" Offer to W2
-    O   REST & CRUD & Vue.js Implementations
-
-O   GOAL 0.4.1
-    Set up Terms Model & Admin
-    O   Add "Negotiate" Offer to W2
-    O   REST & CRUD & Vue.js Implementations
-
-O   GOAL 0.5
-    Develop Stuff Creation Workflow
-    O   W3: REST & CRUD & Vue.js Implementations
-
-O   GOAL 0.6
-    User Profile Workflows (Sketch out (lists,workflows))
-
-
-
-
-
-
-O   GOAL 3:
-    Implement basic Search, Stuff Creation and Booking Workflows in the Frontend
-    O   REST Implementations
-    O   W1: Search and View Stuff
-    O   W2: CRUD Stuff Listings
-    O   W3: CRUD Bookings
-
-    O   Stuff Date Filter? Available from...to
-
-O   GOAL 3:
-    Implement User Dashboard
-    O   Extend userprofile
-    O   Implement the permissions when a user can lend and share (like requirements: email, phone, confirmed, etc...)
-
-O   BookingEvent Model
-O   Transaction Model
-O   Delete Hook for Stuff, Booking and BookingEvents
-    O   Deletes should result in stale version of the object (hook delete signal)
 
 ISSUES:
 O   on_delete=models.PROTECT means that deleting a User or other model is not possible if the Instance has associated instances. Resolve this with a active bool and on_delete hook. Also the querysets should reflect that, e.g. only active User Instances should be queried. In some cases the models.PROTECT can also be change into other viable values models.SET_NULL, etc...
 
-FUTURE FEATURES
+FUTURE FEATURE LIST
 # O    TODO [version 0.]: Category System useful for Stuff?
 # O    TODO [version 0.5]: Implement Long/Lat Functions in position App
     longitude   = models.FloatField(_('Longitude'), null=True, blank=True)
@@ -202,12 +152,19 @@ FUTURE FEATURES
 # O    TODO [version 0.]: User.on_delete signal => rather set to inactive, not delete!
 # O    TODO [version 0.]: Add intelligent database indices to the models for faster retrieval
 # O    TODO [version 0.]: Production Database should be fast MySQL or other
+
+- Add "Trial/Promotion Paid Account" to subscription
+- Footer <> Section: Make the Section above the footer scrollable to the full height. Currently the fixed-bottom footer overlays a part.
+Current Hack: <section class="container-fluid section-bottom-spacing">
+THAT HACK BREAKS IF: the content is too long...
+- Make the EXTEND SUBSCRIPTION BUTTON functional
+
 Inquiry:
     OK   What is Vuex?
         => State Management...
     O..   How works Axios? => models.Stuff
         https://www.npmjs.com/package/vue-axios
-    O
+    O   https://bootstrap-vue.js.org/docs/ ...???
 Bugfix:
     OK   Foundation not included?
         => CDN HOTLINKING... Webpack?

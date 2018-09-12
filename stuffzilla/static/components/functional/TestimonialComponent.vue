@@ -5,19 +5,15 @@
 
 <template lang="html">
     <!-- template code-->
-    <div class="media-object align-right">
-        <div class="media-object-section">
-            <h4>{{ current_testimonial.title }}</h4>
+    <div class="media">
+        <div class="media-body">
+            <h5 class="mt-0 mb-1">{{ current_testimonial.title }}</h5>
             <blockquote>
                 {{ current_testimonial.content }}
                 <cite>{{ current_testimonial.person_name }}</cite>
             </blockquote>
         </div>
-        <div class="media-object-section align-middle">
-            <div class="thumbnail">
-                <img :src="current_testimonial.person_image">
-            </div>
-        </div>
+        <img :src="current_testimonial.person_image">
     </div>
 </template>
 

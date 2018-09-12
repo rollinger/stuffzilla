@@ -5,14 +5,17 @@
 
 <template lang="html">
     <!-- template code-->
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-6">
-            <sz-feedback></sz-feedback>
+    <!-- O  TODO: Footer unsatisfactorial: fixed bottom better sticky-bottom and the InterfaceComponent is scrolling between the two - like Foundation-->
+    <footer class="page-footer container-fluid fixed-bottom bg-light ">
+        <div class="row align-items-center mt-3">
+            <div class="col-sm-6">
+                <sz-feedback></sz-feedback>
+            </div>
+            <div class="col-sm-6">
+                <sz-testimonial></sz-testimonial>
+            </div>
         </div>
-        <div class="cell medium-6">
-            <sz-testimonial></sz-testimonial>
-        </div>
-    </div>
+    </footer>
 </template>
 
 <script>

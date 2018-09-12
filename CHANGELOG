@@ -1,3 +1,68 @@
+VERSION 0.3.0.4
+    OK   BUGFIX Foundation js is not really working. See the menu
+        console errors?
+        => cdn doesn not deliver the js, but the css
+        how to get foundation locally?
+        Bad Bad BROKEN
+        => Added bootstrap 4 instead
+    OK   Rework app for bootstrap
+    OK   Display the profile in the frontend
+    OK  Make Footer not transparent and spaced
+    OK   Two way binding
+    OK   Make vue-method to call for the rest api
+        OK   REST update()
+        AssertionError: The `.update()` method does not support writable nested fields by default.
+        django_1    | Write an explicit `.update()` method for serializer `userprofile.api.UserProfileSerializer`, or set `read_only=True` on nested serializer fields.
+        NO   Request context...
+            The user id is in the <html uid> attribute and fetched when needed
+        NO   Make the API Endpoint 'api/myprofile/uid/' not needing the user id
+        OK   Handle private_profile.email_reminder
+    OK   get the request.context or at least the user.id
+        => uid
+    OK   Translate (De) Frontend
+    OK   Make future feature list for profile
+        - Add "Trial/Promotion Paid Account" to subscription
+        - Footer <> Section: Make the Section above the footer scrollable to the full height. Currently the fixed-bottom footer overlays a part.
+        Current Hack: <section class="container-fluid section-bottom-spacing">
+        THAT HACK BREAKS IF: the content is too long...
+        - Make the EXTEND SUBSCRIPTION BUTTON functional
+        - Upload Button does not change language (BROWSE)
+
+VERSION 0.3.0.3
+    Permissions Django Guardian & REST <= Vue/Axios
+    OK   Investigate and Implement Permissions (Guardian)
+        OK  Investigate DOC
+            - http://www.django-rest-framework.org/api-guide/permissions/
+            - http://www.django-rest-framework.org/api-guide/permissions/#djangoobjectpermissions
+            - https://django-guardian.readthedocs.io/
+            - https://github.com/django-guardian/django-guardian
+        OK   Define Guardian Permissions for Userprofile
+        OK Install
+        NO  Add Guardian to Admin
+        OK   Integrate Guardian, DRF and Vue/Axios
+    OK   Extend Model UserProfile (1to1=> auth.user) into Public, Private, Internal && extend Fields
+        OK   Public
+            OK Image (media/users)
+            OK short bio
+        OK   Private
+            OK want email reminder (default=True)
+            OK interface_language
+            OK Main Address (Main Area)
+            OK   current_area
+        OK   Internal
+            OK current subscription type
+            OK subscription from
+            OK subscription to
+    O   REST with Userprofile
+        OK   Setup Serializers and viewsets
+        OK   Implement Permissions
+            PublicProfileViewSet
+                OK   auth and anonymous list
+            PrivateProfileViewSet
+                OK   Retrieve
+                Ok   Update
+    OK   Define Generic Way for objects and tasks
+
 VERSION 0.3.0.2
     Enable Multi Language Support
     OK   Language support of Code (EN, DE, (PT, ES))

@@ -3,7 +3,35 @@ from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 
 
-# OK    TODO [version 0.2]: Develop Area Model
+
+class Language(models.Model):
+    """ Maps the config Language setting and allows for Language Selection """
+    # O    TODO [version 0.]: Add Flag icon to Language Model
+    code     = models.CharField(_('Language Code'),
+                help_text=_('Standard language code representation. Ex.: en_AU'), max_length=10)
+
+    name     = models.CharField(_('Language Name'),
+                help_text=_('Name of the Language. Ex.: English'), max_length=100)
+
+    country  = models.CharField(_('Country'),
+                help_text=_('Name of the Country. Ex.: Australia'), max_length=100, null=True, blank=True)
+
+    supported    = models.BooleanField(_("Translation supported"),
+                help_text=_('If the language is supported in the App Translation Sytem'), default=False)
+
+    def __str__(self):
+        """ Returns the language code """
+        return "%s" % (self.code,)
+
+    # O    TODO [version 0.]:   Check in save if supported = True that the code is present in the config.LANGUAGE Settings
+
+    class Meta:
+        verbose_name = _('Language')
+        verbose_name_plural = _('Language')
+        ordering = ['name','country']
+
+
+
 class AreaManager(models.Manager):
     """ Manager wrapping the complex retrieval operations """
     pass
@@ -114,6 +142,6 @@ class Address(models.Model):
         ordering = ['street','street_number']
 
         # O    TODO [version 0.]: unique together user & __str__ (or subset) [no user should have 2 of the same addresses] Overkill?
-        
+
         # O    TODO [version 0.5]: Add Db Indexes on street and number so retrieval is faster https://docs.djangoproject.com/en/2.1/ref/models/indexes/
         # indexes = []

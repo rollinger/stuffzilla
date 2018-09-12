@@ -24,4 +24,7 @@
 
 <style lang="scss" scoped>
     /* scoped styles*/
+    h1 {
+        color: blue;
+    }
 </style>

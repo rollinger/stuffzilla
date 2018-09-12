@@ -1,4 +1,5 @@
 var webpack = require('webpack')
+var UglifyJS = require("uglify-js");
 
 // ==================== MAIN SETTINGS ====================
 module.exports = {
@@ -19,7 +20,36 @@ module.exports = {
             {
                 test: /\.js$/,
                 loader: 'babel-loader',
-                exclude: /node_modules/
+                exclude: /node_modules/,
+                //include: [ require.resolve("bootstrap-vue"),]
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    {
+                        // Adds CSS to the DOM by injecting a `<style>` tag
+                        loader: 'style-loader'
+                    },
+                    {
+                        // Interprets `@import` and `url()` like `import/require()` and will resolve them
+                        loader: 'css-loader'
+                    },
+                    {
+                        // Loader for webpack to process CSS with PostCSS
+                        loader: 'postcss-loader',
+                        options: {
+                            plugins: function () {
+                                return [
+                                    require('autoprefixer')
+                                ];
+                            }
+                        }
+                    },
+                    {
+                        // Loads a SASS/SCSS file and compiles it to CSS
+                        loader: 'sass-loader'
+                    }
+                ]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -40,7 +70,7 @@ module.exports = {
     },
     plugins: [],
     resolve: {
-        alias: {'vue$': 'vue/dist/vue.esm.js'}
+        alias: {'vue$': 'vue/dist/vue.esm.js'},
     }
 }
 

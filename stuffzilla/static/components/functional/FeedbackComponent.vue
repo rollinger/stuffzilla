@@ -6,8 +6,10 @@
 <template lang="html">
     <!-- template code-->
     <div class="input-group">
-        <input type="text" placeholder="Give us your">
-        <button type="button" class="button">Feedback</button>
+        <input type="text" class="form-control" placeholder="Give us your" aria-label="Give us your Feedback" aria-describedby="basic-addon2">
+        <div class="input-group-append">
+            <button type="button" class="btn btn-success">Feedback</button>
+        </div>
     </div>
 </template>
 

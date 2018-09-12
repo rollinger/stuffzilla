@@ -1,20 +1,11 @@
 <template lang="html">
-    <div class="grid-y medium-grid-frame">
-        <div class="cell shrink header medium-cell-block-container">
-            <sz-header></sz-header>
-        </div>
-        <div class="cell medium-auto medium-cell-block-container">
-            <sz-interface></sz-interface>
-            <!--p>
-                {{ request.user }} <br>
-                {{ request.LANGUAGE_CODE }} <br>
-                {{ request.user.user_profile.language }}
-            </p-->
-        </div>
-        <div class="cell shrink header medium-cell-block-container">
-            <sz-footer></sz-footer>
-        </div>
+
+    <div>
+        <sz-header></sz-header>
+        <sz-interface></sz-interface>
+        <sz-footer></sz-footer>
     </div>
+
 </template>
 
 <script>

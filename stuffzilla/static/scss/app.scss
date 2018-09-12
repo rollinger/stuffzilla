@@ -1,1 +1,5 @@
-@import 'scss/settings.scss';
+@import "~bootstrap/scss/bootstrap";
+
+section.section-bottom-spacing {
+    margin-bottom: $spacer * 10;
+}

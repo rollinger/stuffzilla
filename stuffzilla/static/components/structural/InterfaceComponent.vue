@@ -5,12 +5,11 @@
 
 <template lang="html">
     <!-- template code-->
-    <div class="grid-x grid-padding-x">
-        <div class="cell medium-6">
-            <!-- Router View for the interface -->
-            <router-view/>
-        </div>
-    </div>
+    <section class="container-fluid section-bottom-spacing">
+
+        <router-view/>
+
+    </section>
 </template>
 
 <script>

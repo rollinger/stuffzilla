@@ -1,4 +1,7 @@
-from rest_framework import routers, serializers, viewsets, mixins
+from rest_framework import status, routers, serializers, viewsets, mixins
+from rest_framework.decorators import action
+from rest_framework.response import Response
+
 # Permissions
 from rest_framework.permissions import AllowAny
 from config.permissions import IsOwner, IsOwnerofUserObject
@@ -7,6 +10,8 @@ from django.contrib.auth.models import User
 from position.api import AreaViewSet, AddressViewSet
 from .models import Profile, PrivateProfile, InternalProfile
 from django.contrib.humanize.templatetags.humanize import naturaltime
+
+
 
 class PublicProfileSerializer(serializers.HyperlinkedModelSerializer):
     """ Serializer for the User Model """
@@ -34,10 +39,14 @@ class PublicProfileViewSet(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, m
 
 class UserProfilePublicProfileSerializer(serializers.HyperlinkedModelSerializer):
     """ Serializer for the Public Profile Model """
+    user_image = serializers.SerializerMethodField('get_image_url')
+
+    def get_image_url(self, obj):
+        return obj.image.url
 
     class Meta:
         model = Profile
-        fields = ('image', 'bio')
+        fields = ('user_image', 'bio')
 
 
 class UserProfilePrivateProfileSerializer(serializers.HyperlinkedModelSerializer):
@@ -70,6 +79,36 @@ class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
     private_profile = UserProfilePrivateProfileSerializer(many=False)
     internal_profile = UserProfileInternalProfileSerializer(many=False, read_only=True)
 
+    def update(self, instance, validated_data):
+        public_profile_data = validated_data.pop('public_profile')
+        private_profile_data = validated_data.pop('private_profile')
+
+        # Get or create the profiles from the user instance and set the data
+        public_profile, created  = Profile.objects.get_or_create(owner=instance)
+        private_profile, created  = PrivateProfile.objects.get_or_create(owner=instance)
+
+        # Set the values
+        public_profile.bio = public_profile_data.get(
+            'bio',
+            public_profile.bio
+        )
+        # O    TODO [version 0.]: Image File upload
+        private_profile.phone_number = private_profile_data.get(
+            'phone_number',
+            private_profile.phone_number
+        )
+        private_profile.email_reminder = private_profile_data.get(
+            'email_reminder',
+            private_profile.email_reminder
+        )
+
+        # Save the profiles
+        public_profile.save()
+        private_profile.save()
+
+        # Return instance
+        return instance
+
     class Meta:
         model = User
         fields = ('username', 'public_profile', 'private_profile', 'internal_profile')
@@ -86,6 +125,9 @@ class PrivateProfileViewSet(mixins.RetrieveModelMixin, mixins.UpdateModelMixin, 
     R:  retrieve (owner); list is disabled
     U:  update (owner)
     D:  disabled
+
+    Endpoints:
+    /api/myprofile/{uid}
     """
     permissions = (IsOwnerofUserObject,)
     queryset = User.objects.filter(is_active=True)
