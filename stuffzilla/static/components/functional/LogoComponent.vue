@@ -4,10 +4,11 @@
 -->
 
 <template lang="html">
-    <div>
-        <!-- template code-->
-        ShareZilla
-    </div>
+    <!-- template code-->
+    <router-link to='/' class="navbar-brand">
+        {{ $t( 'Sharezilla' ) }}
+        <img src="/staticfiles/images/favicons/favicon-32x32.png" width="32" height="32" class="d-inline-block align-top" alt="">
+    </router-link>
 </template>
 
 <script>

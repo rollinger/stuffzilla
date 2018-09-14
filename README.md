@@ -24,6 +24,7 @@ Gobal merry-go-round for stuff that is waiting to be used, shared and enjoyed by
 
   ## Docker
   https://docs.docker.com/
+  https://docs.docker.com/compose/
 
   sudo docker-compose run django python manage.py <command>
 

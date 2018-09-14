@@ -20,8 +20,8 @@ class Language(models.Model):
                 help_text=_('If the language is supported in the App Translation Sytem'), default=False)
 
     def __str__(self):
-        """ Returns the language code """
-        return "%s" % (self.code,)
+        """ Returns the language name """
+        return "%s" % (self.name,)
 
     # O    TODO [version 0.]:   Check in save if supported = True that the code is present in the config.LANGUAGE Settings
 

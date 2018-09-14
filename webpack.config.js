@@ -21,7 +21,20 @@ module.exports = {
                 test: /\.js$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
-                //include: [ require.resolve("bootstrap-vue"),]
+                include: [ require.resolve("bootstrap-vue"),]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        // Adds CSS to the DOM by injecting a `<style>` tag
+                        loader: 'style-loader'
+                    },
+                    {
+                        // Interprets `@import` and `url()` like `import/require()` and will resolve them
+                        loader: 'css-loader'
+                    }
+                ]
             },
             {
                 test: /\.scss$/,

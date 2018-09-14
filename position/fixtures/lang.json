@@ -1,0 +1,38 @@
+[
+  {
+    "model": "position.language",
+    "pk": 1,
+    "fields": {
+      "code": "en",
+      "name": "English",
+      "supported": true
+    }
+  },
+  {
+    "model": "position.language",
+    "pk": 2,
+    "fields": {
+      "code": "de",
+      "name": "German",
+      "supported": true
+    }
+  },
+  {
+    "model": "position.language",
+    "pk": 3,
+    "fields": {
+      "code": "pt",
+      "name": "Portuguese",
+      "supported": true
+    }
+  },
+  {
+    "model": "position.language",
+    "pk": 4,
+    "fields": {
+      "code": "es",
+      "name": "Spanish",
+      "supported": true
+    }
+  }
+]

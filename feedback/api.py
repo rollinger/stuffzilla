@@ -1,4 +1,4 @@
-from rest_framework import routers, serializers, viewsets, response
+from rest_framework import routers, serializers, viewsets, response, mixins
 from rest_framework.filters import OrderingFilter, SearchFilter
 
 from django.shortcuts import get_object_or_404
@@ -16,7 +16,7 @@ class TestimonialSerializer(serializers.HyperlinkedModelSerializer):
     def get_image_url(self, obj):
         return obj.person_image.url
 
-class TestimonialViewSet(viewsets.ModelViewSet):
+class TestimonialViewSet(mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet):
     """
     A simple ViewSet for listing or retrieving testimonials.
     """

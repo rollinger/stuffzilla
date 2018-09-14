@@ -8,6 +8,7 @@ from config.permissions import IsOwner, IsOwnerofUserObject
 
 from django.contrib.auth.models import User
 from position.api import AreaViewSet, AddressViewSet
+from position.api import LanguageSerializer
 from .models import Profile, PrivateProfile, InternalProfile
 from django.contrib.humanize.templatetags.humanize import naturaltime
 
@@ -42,7 +43,10 @@ class UserProfilePublicProfileSerializer(serializers.HyperlinkedModelSerializer)
     user_image = serializers.SerializerMethodField('get_image_url')
 
     def get_image_url(self, obj):
-        return obj.image.url
+        if obj.image:
+            return obj.image.url
+        else:
+            return None
 
     class Meta:
         model = Profile
@@ -56,8 +60,7 @@ class UserProfilePrivateProfileSerializer(serializers.HyperlinkedModelSerializer
 
     class Meta:
         model = PrivateProfile
-        fields = ('language', 'current_area', 'email', 'main_address', 'phone_number',
-                  'email_reminder')
+        fields = ('app_lang', 'current_area', 'email', 'main_address', 'phone_number', 'email_reminder')
 
 
 class UserProfileInternalProfileSerializer(serializers.HyperlinkedModelSerializer):
@@ -100,6 +103,10 @@ class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
         private_profile.email_reminder = private_profile_data.get(
             'email_reminder',
             private_profile.email_reminder
+        )
+        private_profile.app_lang = private_profile_data.get(
+            'app_lang',
+            private_profile.app_lang
         )
 
         # Save the profiles

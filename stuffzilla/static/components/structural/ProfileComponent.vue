@@ -48,9 +48,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">{{ $t( 'profile.language' ) }}:</span>
                                     </div>
-                                    <select class="form-control" aria-label="$t( 'profile.language' )" v-model="profile.private_profile.language">
-                                      <option>1</option>
-                                      <option>2</option>
+                                    <select class="form-control" aria-label="$t( 'profile.language' )" v-model="profile.private_profile.app_lang" v-on:change="updateUserProfile()">
+                                        <option v-for="lang in languages" :value="lang.url">{{ lang.name }}</option>
                                     </select>
                                 </div>
                             </div>
@@ -130,10 +129,35 @@
                 </div>
             </div>
         </div>
+
+        /* DEBUG */
+
         <div class="row">
             <div class="col-sm-12">
                 {{ profile }} <br>
-                {{ uid }}
+                {{ languages }}
+            </div>
+        </div>
+
+        /* TODO: get the related query from ...app_lang */
+        
+        <div class="row">
+            <div class="col-sm-12">
+                <p>Bootstrap Vue Form</p>
+                <b-form @submit="onSubmit">
+                    <b-form-group id="ProfileLanguageInputGroup"
+                        label="Language"
+                        label-for="ProfileLanguageInput">
+                        <b-form-select id="ProfileLanguageInput"
+
+                            :options="languages"
+                            required
+                            value-field='url' text-field='name'
+                            v-model="profile.private_profile.app_lang">
+                        </b-form-select>
+                    </b-form-group>
+                    <b-button type="submit" variant="primary">Submit</b-button>
+                </b-form>
             </div>
         </div>
 
@@ -148,10 +172,21 @@
         data: function() {
             return {
                 uid: '',
-                profile: {},
+                profile: {
+                    'username': '',
+                    'public_profile': '',
+                    'private_profile': '',
+                    'internal_profile': '',
+                },
+                languages: [],
             }
         },
         methods: {
+            onSubmit (evt) {
+                evt.preventDefault();
+                this.updateUserProfile()
+            },
+            /* API Endpoints for User Profile */
             getUserProfile: function(){
                 var api = `api/myprofile/${this.uid}/`;
                 axios.get(api).then((response) => {
@@ -164,12 +199,21 @@
                     this.profile = response.data;
                 });
             },
+            /* API Endpoints for Language List*/
+            listLanguages: function(){
+                var api = `api/languages/`;
+                axios.get(api).then((response) => {
+                    this.languages = response.data;
+                });
+            },
         },
+        computed: {},
         mounted: function() {
             // Get the user id and fetch the User Profile
             this.uid = document.documentElement.getAttribute('uid') || '';
-            this.getUserProfile()
-
+            this.getUserProfile();
+            this.listLanguages();
+            //console.log(this.profile.private_profile.app_lang);
         }
     }
 </script>

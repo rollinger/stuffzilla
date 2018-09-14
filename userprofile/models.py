@@ -8,7 +8,7 @@ from django.utils import timezone
 
 from django.contrib.auth.models import User
 
-from position.models import Address, Area
+from position.models import Address, Area, Language
 
 
 
@@ -65,8 +65,8 @@ class PrivateProfile(models.Model):
     current_area    = models.ForeignKey(Area,
                     help_text=_('Area you currently are observing'), related_name="profiles", on_delete=models.SET_NULL, null=True, blank=True)
 
-    language        = models.CharField(_('Application Language'),
-                    help_text=_('Which language would you like to use?'), choices=settings.LANGUAGES, max_length=255, default='en')
+    app_lang        = models.ForeignKey(Language,
+                    help_text=_('Which language would you like to use in the App?'), related_name="public_profiles", on_delete=models.SET_NULL, null=True, blank=True)
 
     email           = models.EmailField(_('Email'),
                     help_text=_('Your email address to reach out to you.'))
@@ -138,7 +138,7 @@ def create_profile_for_new_user(sender, created, instance, **kwargs):
     """ When a new user is created the public, private and internal profile is created alongside and prepopulated """
     if created:
         profile = Profile(owner=instance)
-        public_profile = PublicProfile(owner=instance,email=instance.email)
+        public_profile = PrivateProfile(owner=instance, email=instance.email)
         internal_profile = InternalProfile(owner=instance)
         # O    TODO [version 0.3.5]: Handle User Subscription on init (Free month)
         profile.save()

@@ -27,7 +27,10 @@ class ProfileLocaleMiddleware(BaseMiddleware):
         if request.user.is_authenticated():
             try:
                 profile = PrivateProfile.objects.get(owner=request.user)
-                return profile.language
+                if profile.app_lang:
+                    return profile.app_lang.code
+                else:
+                    return translation.get_language_from_request(request)
             except PrivateProfile.DoesNotExist:
                 pass
         return translation.get_language_from_request(request)

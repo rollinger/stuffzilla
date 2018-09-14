@@ -7,12 +7,12 @@
     <!-- template code-->
     <header class="container-fluid sticky-top">
         <nav class="row navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">{{ $t( 'Sharezilla' ) }}
-                <img src="/staticfiles/images/favicons/favicon-32x32.png" width="32" height="32" class="d-inline-block align-top" alt="">
-            </a>
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMainMenu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            
+            <sz-logo></sz-logo>
 
             <sz-main-menu></sz-main-menu>
 

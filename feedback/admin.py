@@ -5,7 +5,7 @@ from .models import Testimonial
 #admin.ModelAdmin
 class TestimonialAdmin(TranslationAdmin):
     """ Testimonial Admin with Translation"""
-    list_display = ('title', 'image_tag', 'person_name', 'published',)
+    list_display = ('image_tag', 'title', 'person_name', 'published',)
     list_display_links = ('title',)
 
     search_fields = ('title', 'content', 'person_name',)

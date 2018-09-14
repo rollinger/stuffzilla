@@ -15,11 +15,17 @@ import FooterComponent from './components/structural/FooterComponent.vue'
 
 export default {
     name: 'Sharezilla',
+    data: function() {
+        return {}
+    },
     components: {
         'sz-header': HeaderComponent,
         'sz-interface': InterfaceComponent,
         'sz-footer': FooterComponent,
     },
+
+    mounted: function() {
+    }
 }
 </script>
 

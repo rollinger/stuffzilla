@@ -13,7 +13,7 @@ class LanguageSerializer(serializers.HyperlinkedModelSerializer):
     """ Serializers for the Language on Sharezilla """
     class Meta:
         model = Language
-        fields = ('code', 'name', 'country')
+        fields = ('url', 'code', 'name', 'country')
 
 class LanguageViewSet(mixins.RetrieveModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet):
     """
