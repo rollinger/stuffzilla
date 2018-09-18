@@ -55,7 +55,7 @@ class UserProfilePublicProfileSerializer(serializers.HyperlinkedModelSerializer)
 
 class UserProfilePrivateProfileSerializer(serializers.HyperlinkedModelSerializer):
     """ Serializer for the Private Profile Model """
-    current_area = serializers.StringRelatedField()
+    #current_area = serializers.StringRelatedField()
     main_address = serializers.StringRelatedField()
 
     class Meta:
@@ -107,6 +107,10 @@ class UserProfileSerializer(serializers.HyperlinkedModelSerializer):
         private_profile.app_lang = private_profile_data.get(
             'app_lang',
             private_profile.app_lang
+        )
+        private_profile.current_area = private_profile_data.get(
+            'current_area',
+            private_profile.current_area
         )
 
         # Save the profiles

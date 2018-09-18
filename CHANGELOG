@@ -1,3 +1,42 @@
+Version 0.3.0.6
+    Make Area Selection work
+    OK   Investigate TreeModels in django
+        - https://django-mptt.readthedocs.io/en/latest/overview.html
+        - https://django-treebeard.readthedocs.io/en/latest/index.html
+        => use mptt
+    OK   Investigate Geospatial Packages
+        - https://wq.io/wq.db
+        - https://django-geoposition.readthedocs.io/en/latest
+        => use django-geoposition
+    OK  Install packages
+        sudo docker-compose run --user=root django pipenv update
+        sudo docker-compose build
+    OK  Rewrite Area Model (TreeModel)
+        name (TreeModel for Country => City)
+        adjacent_fks (m2m => Area)
+            TreeManytoManyField
+            https://django-mptt.readthedocs.io/en/latest/models.html#id20
+        geobox_upper (django-geoposition)
+        geobox_lower (django-geoposition)
+        geobox_center (django-geoposition) (Show in Map)
+        def __str__() == name (super | super | name)
+        def is_inside() => check geoposition against geobox
+        def is_adjacent() => check adjacent fks
+    OK   Handle private_profile.current_area
+        NO   Write Area Component
+    OK   BUGFIXES
+        # OK    TODO [version 0.3.0.6]: Footer hide on mobile (fade in possible) SEE: https://getbootstrap.com/docs/4.0/utilities/display/
+            OK   Add a top border to better seperate from content
+        # OK    TODO [version 0.]: rename position app to something like 'utils'
+        # OK    TODO Git ignore media folder
+        # OK    TODO [version 0.]: remove staticfiles dir from git
+        # OK    TODO [version 0.3.0.6]: Remove unneeded vue components
+        # OK    TODO [version 0.]: remove "foundation-sites": "6.2.3" from webpack
+    OK   FUTURE FEATURE LIST
+        # O    TODO [version 0.]: Changeing interface language triggers reload to effect the interface language.
+        # O     TODO [version 0.]: Convert HTML (Bootstrap) to VUE-Bootstrap
+        O   Check out nebenan.de
+
 VERSION 0.3.0.5
     Make Language Selection work
     OK  Write Language Model that maps config Language settings

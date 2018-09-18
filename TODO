@@ -1,51 +1,11 @@
 
-GOAL 0.3.0.6
-    Make Area Selection work
-    OK   Investigate TreeModels in django
-        - https://django-mptt.readthedocs.io/en/latest/overview.html
-        - https://django-treebeard.readthedocs.io/en/latest/index.html
-        => use mptt
-    OK   Investigate Geospatial Packages
-        - https://wq.io/wq.db
-        - https://django-geoposition.readthedocs.io/en/latest
-        => use django-geoposition
-    OK  Install packages
-        sudo docker-compose run --user=root django pipenv update
-        sudo docker-compose build
-    OK  Rewrite Area Model (TreeModel)
-        name (TreeModel for Country => City)
-        adjacent_fks (m2m => Area)
-            TreeManytoManyField
-            https://django-mptt.readthedocs.io/en/latest/models.html#id20
-        geobox_upper (django-geoposition)
-        geobox_lower (django-geoposition)
-        geobox_center (django-geoposition) (Show in Map)
-        def __str__() == name (super | super | name)
-        def is_inside() => check geoposition against geobox
-        def is_adjacent() => check adjacent fks
-
-    O   Handle private_profile.current_area
-        O   Write Area Component
-
-    O   Check out nebenan.de
-
-    O   BUGFIXES
-        # O    TODO [version 0.3.0.6]: Footer hide on mobile (fade in possible)
-            O   Add a top border to better seperate from content
-        # OK    TODO [version 0.]: rename position app to something like 'utils'
-        # OK    TODO Git ignore media folder
-        # OK    TODO [version 0.]: remove staticfiles dir from git
-        # OK    TODO [version 0.3.0.6]: Remove unneeded vue components
-        # OK    TODO [version 0.]: remove "foundation-sites": "6.2.3" from webpack
-    O   FUTURE FEATURE LIST
-        # O    TODO [version 0.]: Changeing interface language triggers reload to effect the interface language.
-        # O     TODO [version 0.]: Convert HTML (Bootstrap) to VUE-Bootstrap
 
 GOAL 0.3.0.7
     Image File Handling
     OK   Install vue bootstrap-vue
     O   Handle file upload in Profile
         O   Upload Button does not change language sensitive Text (BROWSE)
+    O   Check out nebenan.de
     O   BUGFIXES
         # NO     TODO: Add change rights to build script for media
             => Works as intended after docker build
@@ -55,6 +15,7 @@ GOAL 0.3.0.7
             O   Add all transations
         # O    TODO [version 0.]: Licence/Credentials for the image add automatic interpolation if Char is not null
         # O    TODO [version 0.]: remove TODO && COMPETITION from GIT
+        # O     TODO [version 0.]: Convert HTML (Bootstrap) to VUE-Bootstrap
 
 GOAL 0.3.0.8
     Adress Handling
@@ -118,6 +79,9 @@ O   GOAL 0.4
         O   Update ModelTranslation Fields (if applicable)
         O   Update vuex-i18n Frontend Translation Files
         O   REST & CRUD & Vue.js Implementations
+        BUGFIXES
+            # O    TODO [version 0.]: Changeing interface language triggers reload to effect the interface language.
+            # O    TODO [version 0.]: What to do when Area not found => Input new area
     O   GOAL 0.3.6
         Develop Feedback Workflow (Model & Admin & API for FeedbackComponent)
         O   Define Guardian Permissions for Feedback

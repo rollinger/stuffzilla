@@ -58,9 +58,8 @@
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">{{ $t( 'profile.current_area' ) }}:</span>
                                     </div>
-                                    <select class="form-control" aria-label="$t( 'profile.language' )" v-model="profile.private_profile.current_area">
-                                      <option>1</option>
-                                      <option>2</option>
+                                    <select class="form-control" aria-label="$t( 'profile.area' )" v-model="profile.private_profile.current_area" v-on:change="updateUserProfile()">
+                                        <option v-for="area in areas" :value="area.url">{{ area.name }}</option>
                                     </select>
                                 </div>
                             </div>
@@ -140,7 +139,7 @@
         </div>
 
         /* TODO: get the related query from ...app_lang */
-        
+
         <div class="row">
             <div class="col-sm-12">
                 <p>Bootstrap Vue Form</p>
@@ -149,14 +148,26 @@
                         label="Language"
                         label-for="ProfileLanguageInput">
                         <b-form-select id="ProfileLanguageInput"
-
                             :options="languages"
                             required
                             value-field='url' text-field='name'
                             v-model="profile.private_profile.app_lang">
                         </b-form-select>
                     </b-form-group>
+
+                    <b-form-group id="ProfileAreaInputGroup"
+                        label="Area"
+                        label-for="ProfileAreaInput">
+                        <b-form-select id="ProfileAreaInput"
+                            :options="areas"
+                            required
+                            value-field='url' text-field='name'
+                            v-model="profile.private_profile.current_area">
+                        </b-form-select>
+                    </b-form-group>
+
                     <b-button type="submit" variant="primary">Submit</b-button>
+
                 </b-form>
             </div>
         </div>
@@ -179,6 +190,7 @@
                     'internal_profile': '',
                 },
                 languages: [],
+                areas: [],
             }
         },
         methods: {
@@ -206,6 +218,14 @@
                     this.languages = response.data;
                 });
             },
+            /* API Endpoints for Language List*/
+            listAreas: function(){
+                var api = `api/areas/`;
+                axios.get(api).then((response) => {
+                    this.areas = response.data;
+                });
+            },
+
         },
         computed: {},
         mounted: function() {
@@ -213,6 +233,7 @@
             this.uid = document.documentElement.getAttribute('uid') || '';
             this.getUserProfile();
             this.listLanguages();
+            this.listAreas();
             //console.log(this.profile.private_profile.app_lang);
         }
     }

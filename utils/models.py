@@ -7,6 +7,8 @@ from mptt.models import MPTTModel, TreeForeignKey
 
 from geoposition.fields import GeopositionField
 
+
+
 class Language(models.Model):
     """ Maps the config Language setting and allows for Language Selection """
     # O    TODO [version 0.]: Add Flag icon to Language Model

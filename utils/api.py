@@ -43,7 +43,7 @@ class AreaSerializer(serializers.HyperlinkedModelSerializer):
     """ Serializers for the Area on Sharezilla """
     class Meta:
         model = Area
-        fields = ('country', 'region', 'city')
+        fields = ( 'url', 'name', 'parent',)
 
 class AreaViewSet(viewsets.ModelViewSet):
     """ ViewSets retrieving the stuff  """
