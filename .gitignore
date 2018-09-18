@@ -58,6 +58,7 @@ node_modules/
 
 # User-uploaded media
 */media/
+media/
 
 # Collected staticfiles
 */staticfiles/
