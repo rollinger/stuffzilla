@@ -32,9 +32,9 @@ GOAL 0.3.0.6
         # O    TODO [version 0.3.0.6]: Footer hide on mobile (fade in possible)
         # OK    TODO [version 0.]: rename position app to something like 'utils'
 
-        # O     TODO Git ignore media folder
-        # O    TODO [version 0.]: remove staticfiles dir from git
+        # O..     TODO Git ignore media folder
 
+        # OK    TODO [version 0.]: remove staticfiles dir from git
         # OK    TODO [version 0.3.0.6]: Remove unneeded vue components
         # OK    TODO [version 0.]: remove "foundation-sites": "6.2.3" from webpack
     O   FUTURE FEATURE LIST
