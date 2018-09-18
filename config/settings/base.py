@@ -35,6 +35,8 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
+    'mptt',
+    'geoposition',
     'rest_framework',
     'django_filters',
     'rest_framework_filters',
@@ -128,6 +130,21 @@ LOCALE_PATHS = (
     os.path.join(ROOT_DIR, 'position/locale'),
     os.path.join(ROOT_DIR, 'userprofile/locale'),
 )
+
+# API Key for Geo Django Map Interpolation
+# See: https://django-geoposition.readthedocs.io/en/latest/
+GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyBWTOi7gaNhmGVm5wIgaVExqP9qK4otoE4'
+
+GEOPOSITION_MAP_OPTIONS = {
+    'minZoom': 3,
+    'maxZoom': 15,
+}
+
+GEOPOSITION_MARKER_OPTIONS = {
+    'cursor': 'move'
+}
+
+
 
 # See: https://docs.djangoproject.com/en/dev/ref/settings/#use-i18n
 USE_I18N = True

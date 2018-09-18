@@ -2,7 +2,10 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils.translation import gettext_lazy as _
 
+from mptt.fields import TreeManyToManyField
+from mptt.models import MPTTModel, TreeForeignKey
 
+from geoposition.fields import GeopositionField
 
 class Language(models.Model):
     """ Maps the config Language setting and allows for Language Selection """
@@ -35,36 +38,54 @@ class Language(models.Model):
 class AreaManager(models.Manager):
     """ Manager wrapping the complex retrieval operations """
     pass
-class Area(models.Model):
+class Area(MPTTModel):
     """
-    An Area defines an urban area (such as a city) in a Region in a Country. Many assets link to instances of this model for search and retrieval based on geographic proximity. The verified flag means that it is an official Area.
+    An Area defines an urban area (such as a city) in a Country. Many assets link to instances of this model for search and retrieval based on geographic proximity. The model is a hierarchical Model with geopositions attached to it. The verified flag means that it is an official, curated Area.
+    See: https://django-mptt.readthedocs.io/en/latest/overview.html
+    See: https://django-geoposition.readthedocs.io/en/latest/
     """
-    country     = models.CharField(_('Country'),
-                help_text=_('Country the Area is located in.'),
-                max_length=255)
-    region      = models.CharField(_('Region'),
-                help_text=_('Region the Area is located in.'),
-                max_length=255, null=True, blank=True)
-    # O    TODO [version 0.]: Integrate the concept of Municipality and County into Area Model. E.g. Portugal => Grande Porto => Porto
-    city        = models.CharField(_('City'),
-                help_text=_('City the Area is located in.'),
-                max_length=255)
+    name    = models.CharField(_('Area Name'),
+            help_text=_('Name of Area in the hierarchy. E.g.: City or Country'), max_length=255)
+
+    parent  = TreeForeignKey('self',
+            on_delete=models.CASCADE, null=True, blank=True, related_name='children')
+
+    adjacent_areas = TreeManyToManyField('self',
+            help_text=_('Areas that are neighbors or subsets of this area.'), related_name='adjacent_to', blank=True,)
+
+    geobox_upper = GeopositionField(_('Upper-Left Geoposition Boundary'),
+            help_text=_('Upper-Left Geoposition (latitude and longitude) of the Area'), null=True, blank=True,)
+    geobox_lower = GeopositionField(_('Lower-Right Geoposition Boundary'),
+            help_text=_('Lower-Right Geoposition (latitude and longitude) of the Area'), null=True, blank=True,)
+    geobox_center = GeopositionField(_('Centered Geoposition'),
+            help_text=_('Centered Geoposition (latitude and longitude) of the Area'), null=True, blank=True,)
+
     verified    = models.BooleanField(_("Verified Area"),
                 help_text=_('If the specified area is verified to be existent and relevant'), default=False)
 
     created_at  = models.DateTimeField(_('Created at'), auto_now_add=True)
     updated_at  = models.DateTimeField(_('Updated at'), auto_now=True)
 
-    objects = AreaManager
+    #objects = AreaManager
 
     def __str__(self):
-        """ Returns the city and the country """
-        return "%s (%s)" % (self.city, self.country)
+        """ Returns the name of the area """
+        if self.parent:
+            return "%s (%s)" % (self.name, self.parent.name, )
+        return "%s" % (self.name, )
+
+    def is_inside(self):
+        """ => check geoposition against geobox """
+        pass
+    def is_adjacent(self):
+        """  => check adjacent fks """
+        pass
 
     class Meta:
         verbose_name = _('Area')
         verbose_name_plural = _('Areas')
-        ordering = ['country','city']
+        #order_insertion_by = ['name']
+        ordering = ['name',]
 
         #unique_together = ['city','region','country']
 

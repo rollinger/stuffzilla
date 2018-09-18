@@ -26,6 +26,9 @@ Gobal merry-go-round for stuff that is waiting to be used, shared and enjoyed by
   https://docs.docker.com/
   https://docs.docker.com/compose/
 
+  ## PipEnv Package Management
+  https://pipenv.readthedocs.io/en/latest/
+
   sudo docker-compose run django python manage.py <command>
 
   User issue (Permission):

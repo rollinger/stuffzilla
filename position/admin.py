@@ -1,29 +1,34 @@
 from django.contrib import admin
+from mptt.admin import MPTTModelAdmin
 from modeltranslation.admin import TranslationAdmin
 from .models import Area, Address, Language
 
-class AreaAdmin(admin.ModelAdmin):
-    """ Area Admin """
-    list_display = ('city', 'country', 'region', 'verified')
-    list_display_links = ('city',)
+class AreaAdmin(MPTTModelAdmin):
+    """
+        Area Tree Admin
+        SEE: https://django-mptt.readthedocs.io/en/latest/admin.html
+    """
+    mptt_level_indent = 20
+    list_display = ('name', 'parent', 'verified', 'geobox_center',)
+    list_display_links = ('name',)
 
-    search_fields = ('city', 'country', 'region')
+    search_fields = ('name', )
     list_filter = ('verified',)
 
     readonly_fields = ['created_at', 'updated_at']
     list_editable = ('verified',)
-    #autocomplete_fields = ['owner',]
+    autocomplete_fields = ['parent', 'adjacent_areas',]
 
     save_on_top = True
     fieldsets = (
         ('General', {
-            'fields': ('city', 'country', 'region',)
+            'fields': ('name', 'parent', 'adjacent_areas',)
         }),
-        ('Flags', {
-            'fields': ('verified',),
+        ('Position', {
+            'fields': ('geobox_center', 'geobox_upper', 'geobox_lower')
         }),
         ('Internals', {
-            'fields': ('created_at', 'updated_at',),
+            'fields': ('verified', 'created_at', 'updated_at',),
         }),
     )
 admin.site.register(Area, AreaAdmin)

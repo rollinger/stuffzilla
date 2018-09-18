@@ -1,3 +1,46 @@
+VERSION 0.3.0.5
+    Make Language Selection work
+    OK  Write Language Model that maps config Language settings
+        - lang_code
+        - Language
+        - Country
+        - supported (Bool)
+    OK   ModelTranslation for fields: Language & Country
+    OK   REST API
+    OK  Make language FK
+    OK   Rebuild Docker & App
+    OK   Setup fixture => Language
+    # See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS
+    FIXTURE_DIRS
+    OK  Fixture loading possible
+    OK   Global Endpoints in Sharezilla.vue
+        Possible? Not needed.
+    OK   Handle private_profile.language in Profile
+        OK   Again bootstrap vue
+            => Out-of-the-box: did a complete rebuild of the docker image
+        OK Test Language
+    OK   Remove Lang from Menu. put profile in the user dropdown. if auth the menu parent is username if anonymous it is Login and Right of it is Sign-Up as a Button
+    OK   ShareZilla Icon => to market
+    OK   BUGFIXES
+        OK   Testimonials Endpoint only get & list and remove the licence from APi
+        OK   Image Upload Bugfix. If the system is rebuild the folder has wrong permissions. builtins.PermissionError.
+        PermissionError: [Errno 13] Permission denied: '/app/media/profile/10153682046151361_CMoTOVa.jpg'
+    OK   FUTURE FEATURE LIST
+        # O    TODO [version 0.]: position.Language: Add Flag icon to Language Model
+        # O    TODO [version 0.]: position.Language: Check in save if supported = True that the code is present in the config.LANGUAGE Settings
+        # O    TODO [version 0.]: rename position app to something like 'utils'
+        # O    TODO [version 0.]: remove "foundation-sites": "6.2.3" from webpack
+        # O    TODO [version 0.]: remove staticfiles dir from git
+        # O    TODO [version 0.]: Add fixture loading to docker build script (all apps) See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS FIXTURE_DIRS
+            O   make private_profile_app_lang default to "English"
+        # O     TODO: Add change rights to build script for media
+        # O     TODO: !!! Auth System: Store the profile (load in Sharezilla.vue) of the user in Storage, so everything is accessible from the components and no props-passing-madness
+        # O     TODO: Make ShareZilla Name & Icon
+        # O    TODO [version 0.]: Remove unneeded vue components
+        # O    TODO [version 0.]: Footer hide on mobile
+        # O    TODO [version 0.]: Convert HTML (Bootstrap) to VUE-Bootstrap
+        # O TODO Git ignore media folder
+
 VERSION 0.3.0.4
     OK   BUGFIX Foundation js is not really working. See the menu
         console errors?

@@ -24,9 +24,9 @@ class AreaFilter(filters.FilterSet):
     """ Filter on Area """
     class Meta:
         model = Area
-        fields = {'country': ['exact', 'in', 'startswith'],
-            'region': ['exact', 'in', 'startswith'],
-            'city': ['exact', 'in', 'startswith']}
+        fields = {'name': ['exact', 'in', 'startswith'],}
+            #'region': ['exact', 'in', 'startswith'],
+            #'city': ['exact', 'in', 'startswith']}
 
 class AddressFilter(filters.FilterSet):
     """ Filter on Address """
