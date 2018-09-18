@@ -47,7 +47,7 @@ THIRD_PARTY_APPS = [
 # Apps specific for this project go here.
 LOCAL_APPS = [
     # Your stuff: custom apps go here
-    'position',
+    'utils',
     'market',
     'feedback',
     'userprofile',
@@ -127,7 +127,7 @@ LANGUAGES = [
 LOCALE_PATHS = (
     os.path.join(ROOT_DIR, 'feedback/locale'),
     os.path.join(ROOT_DIR, 'market/locale'),
-    os.path.join(ROOT_DIR, 'position/locale'),
+    os.path.join(ROOT_DIR, 'utils/locale'),
     os.path.join(ROOT_DIR, 'userprofile/locale'),
 )
 

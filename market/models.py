@@ -5,7 +5,7 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib.humanize.templatetags.humanize import naturaltime
 
 from django.contrib.auth.models import User
-from position.models import Address, Area
+from utils.models import Address, Area
 
 
 KIND_OF_SHARING = (

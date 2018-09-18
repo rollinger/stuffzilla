@@ -7,8 +7,8 @@ from rest_framework.permissions import AllowAny
 from config.permissions import IsOwner, IsOwnerofUserObject
 
 from django.contrib.auth.models import User
-from position.api import AreaViewSet, AddressViewSet
-from position.api import LanguageSerializer
+from utils.api import AreaViewSet, AddressViewSet
+from utils.api import LanguageSerializer
 from .models import Profile, PrivateProfile, InternalProfile
 from django.contrib.humanize.templatetags.humanize import naturaltime
 

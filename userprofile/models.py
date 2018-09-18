@@ -8,7 +8,7 @@ from django.utils import timezone
 
 from django.contrib.auth.models import User
 
-from position.models import Address, Area, Language
+from utils.models import Address, Area, Language
 
 
 

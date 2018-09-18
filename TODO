@@ -29,11 +29,16 @@ GOAL 0.3.0.6
             - popover for composition as a component??? !!!
 
     O   BUGFIXES
-        # O    TODO [version 0.]: rename position app to something like 'utils'
-        # O    TODO [version 0.3.0.6]: Remove unneeded vue components
         # O    TODO [version 0.3.0.6]: Footer hide on mobile (fade in possible)
-        # O    TODO [version 0.]: remove "foundation-sites": "6.2.3" from webpack
+        # OK    TODO [version 0.]: rename position app to something like 'utils'
+
+        # O     TODO Git ignore media folder
+        # O    TODO [version 0.]: remove staticfiles dir from git
+
+        # OK    TODO [version 0.3.0.6]: Remove unneeded vue components
+        # OK    TODO [version 0.]: remove "foundation-sites": "6.2.3" from webpack
     O   FUTURE FEATURE LIST
+
 
 GOAL 0.3.0.7
     Image File Handling
@@ -42,8 +47,7 @@ GOAL 0.3.0.7
         O   Upload Button does not change language sensitive Text (BROWSE)
     O   BUGFIXES
         # O     TODO: Add change rights to build script for media
-        # O     TODO Git ignore media folder
-        # O    TODO [version 0.]: remove staticfiles dir from git
+        # O     TODO [version 0.]: Convert HTML (Bootstrap) to VUE-Bootstrap
 
 GOAL 0.3.0.8
     Adress Handling
@@ -53,8 +57,8 @@ GOAL 0.3.0.8
     # O    TODO [version 0.]: Add fixture loading to docker build script (all apps) See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS FIXTURE_DIRS
         O       make private_profile_app_lang default to "English"
         O       TODO [version 0.]: position.Language: Check in save if supported = True that the code is present in the config.LANGUAGE Settings
-    # O     TODO [version 0.]: Convert HTML (Bootstrap) to VUE-Bootstrap
-    # O    TODO [version 0.]: position.Language: Add Flag icon to Language Model
+
+    # O    TODO [version 0.]: utils.Language: Add Flag icon to Language Model
 
 0.3.0.?
 

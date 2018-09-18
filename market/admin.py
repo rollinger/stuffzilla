@@ -6,7 +6,7 @@ from django.template.defaultfilters import escape
 from django.utils.translation import gettext_lazy as _
 from django.contrib.humanize.templatetags.humanize import naturaltime
 
-from position.models import Address
+from utils.models import Address
 from .models import Stuff, SharingRequest, SharingOffer
 
 

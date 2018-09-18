@@ -1,6 +1,6 @@
 from rest_framework import routers
 
-from position.api import AreaViewSet, AddressViewSet, LanguageViewSet
+from utils.api import AreaViewSet, AddressViewSet, LanguageViewSet
 from market.api import StuffViewSet
 from userprofile.api import PublicProfileViewSet, PrivateProfileViewSet
 from feedback.api import TestimonialViewSet

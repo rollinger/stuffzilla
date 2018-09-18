@@ -11,8 +11,8 @@ import rest_framework_filters as filters
 #print(dir(filters))
 
 from django.contrib.auth.models import User
-from position.models import Address, Area
-from position.api import AddressSerializer
+from utils.models import Address, Area
+from utils.api import AddressSerializer
 from . models import Stuff
 
 
