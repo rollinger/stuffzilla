@@ -9,8 +9,8 @@
         <div class="media-body">
             <h5 class="mt-0 mb-1">{{ current_testimonial.title }}</h5>
             <blockquote>
-                {{ current_testimonial.content }}
-                <cite>{{ current_testimonial.person_name }}</cite>
+                {{ current_testimonial.content }}<br>
+                <cite> -- {{ current_testimonial.person_name }}</cite>
             </blockquote>
         </div>
         <img :src="current_testimonial.person_image">

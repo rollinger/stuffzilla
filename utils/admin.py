@@ -22,13 +22,13 @@ class AreaAdmin(MPTTModelAdmin):
     save_on_top = True
     fieldsets = (
         ('General', {
-            'fields': ('name', 'parent', 'adjacent_areas',)
+            'fields': ('name', 'parent', 'adjacent_areas', 'verified', )
         }),
         ('Position', {
             'fields': ('geobox_center', 'geobox_upper', 'geobox_lower')
         }),
         ('Internals', {
-            'fields': ('verified', 'created_at', 'updated_at',),
+            'fields': ('created_at', 'updated_at',),
         }),
     )
 admin.site.register(Area, AreaAdmin)

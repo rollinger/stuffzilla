@@ -26,19 +26,20 @@ GOAL 0.3.0.6
 
     O   Handle private_profile.current_area
         O   Write Area Component
-            - popover for composition as a component??? !!!
+
+    O   Check out nebenan.de
 
     O   BUGFIXES
         # O    TODO [version 0.3.0.6]: Footer hide on mobile (fade in possible)
+            O   Add a top border to better seperate from content
         # OK    TODO [version 0.]: rename position app to something like 'utils'
-
-        # O..     TODO Git ignore media folder
-
+        # OK    TODO Git ignore media folder
         # OK    TODO [version 0.]: remove staticfiles dir from git
         # OK    TODO [version 0.3.0.6]: Remove unneeded vue components
         # OK    TODO [version 0.]: remove "foundation-sites": "6.2.3" from webpack
     O   FUTURE FEATURE LIST
-
+        # O    TODO [version 0.]: Changeing interface language triggers reload to effect the interface language.
+        # O     TODO [version 0.]: Convert HTML (Bootstrap) to VUE-Bootstrap
 
 GOAL 0.3.0.7
     Image File Handling
@@ -46,15 +47,21 @@ GOAL 0.3.0.7
     O   Handle file upload in Profile
         O   Upload Button does not change language sensitive Text (BROWSE)
     O   BUGFIXES
-        # O     TODO: Add change rights to build script for media
-        # O     TODO [version 0.]: Convert HTML (Bootstrap) to VUE-Bootstrap
+        # NO     TODO: Add change rights to build script for media
+            => Works as intended after docker build
+        # O     TODO [version 0.]: Django Geoposition Admin Map is not working (settings. API Problem?)
+        # O    TODO [version 0.]: Add fixture loading to docker build script (all apps) See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS FIXTURE_DIRS
+            Make it from current db state, first set it into nice state. images will be ignored for now and have to be added afterwards.
+            O   Add all transations
+        # O    TODO [version 0.]: Licence/Credentials for the image add automatic interpolation if Char is not null
+        # O    TODO [version 0.]: remove TODO && COMPETITION from GIT
 
 GOAL 0.3.0.8
     Adress Handling
     O   Handle private_profile.main_address
         - popover for composition as a component??? !!!
     O   BUGFIXES
-    # O    TODO [version 0.]: Add fixture loading to docker build script (all apps) See: https://docs.djangoproject.com/en/dev/ref/settings/#std:setting-FIXTURE_DIRS FIXTURE_DIRS
+
         O       make private_profile_app_lang default to "English"
         O       TODO [version 0.]: position.Language: Check in save if supported = True that the code is present in the config.LANGUAGE Settings
 

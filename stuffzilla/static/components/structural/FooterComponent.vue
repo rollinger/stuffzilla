@@ -6,7 +6,7 @@
 <template lang="html">
     <!-- template code-->
     <!-- O  TODO: Footer unsatisfactorial: fixed bottom better sticky-bottom and the InterfaceComponent is scrolling between the two - like Foundation-->
-    <footer class="page-footer container-fluid fixed-bottom bg-light ">
+    <footer class="page-footer container-fluid fixed-bottom bg-light border-top d-none d-md-block">
         <div class="row align-items-center mt-3">
             <div class="col-sm-6">
                 <sz-feedback></sz-feedback>
